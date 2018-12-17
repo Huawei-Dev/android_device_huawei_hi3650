@@ -60,7 +60,6 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BACKLIGHT_PATH := /sys/class/leds/lcd_backlight0/brightness
 
 # Configstore
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Display
