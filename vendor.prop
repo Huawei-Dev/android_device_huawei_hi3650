@@ -47,9 +47,7 @@ debug.stagefright.ccodec=0
 
 # Misc
 persist.sys.huawei.debug.on=1
-    
-# Netflix
-ro.netflix.bsp_rev=Q660-13149-1
+
 
 # RCC module
 ro.config.enable_rcc=true
