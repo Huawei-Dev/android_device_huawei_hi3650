@@ -56,9 +56,7 @@ debug.stagefright.ccodec=0
 
 # Misc
 persist.sys.huawei.debug.on=1
-    
-# Netflix
-ro.netflix.bsp_rev=Q660-13149-1
+
 
 # Power HAL
 vendor.powerhal.disp.idle_support=false
