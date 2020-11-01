@@ -56,7 +56,6 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 MALLOC_SVELTE_FOR_LIBC32 := true
 
 # Charger 
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := /sys/class/leds/lcd_backlight0/brightness
 
 # Display
