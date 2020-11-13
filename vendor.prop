@@ -28,7 +28,8 @@ dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapminfree=2m
 dalvik.vm.heapmaxfree=8m
 
-debug.hwui.profile=true
+# Display
+debug.sf.latch_unsignaled=1
 ro.opengles.version=196610
 
 # DRM
@@ -95,11 +96,11 @@ debug.renderengine.backend=threaded
 service.sf.prime_shader_cache=0
 debug.sf.enable_gl_backpressure=1
 
-# wifi
+# WiFi
 wifi.interface=wlan0
 wifi.direct.interface=p2p-dev-wlan0
 
-# vowifi
+# VoWiFi
 ro.config.hw_vowifi=true
 
 # VR
