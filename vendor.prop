@@ -72,6 +72,7 @@ ro.config.enable_rcc=true
 
 # Recovery
 persist.vendor.recovery_update=true
+ro.recovery.ui.blank_unblank_on_init=true
 
 # Sdcardfs
 persist.sys.adoptable_fbe=true
