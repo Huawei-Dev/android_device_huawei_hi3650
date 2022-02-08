@@ -29,7 +29,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.primary.hisi_wrapper \
     audio.primary.default \
-    audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     libaudioutils \
