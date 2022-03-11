@@ -17,7 +17,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_tablet.mk)
 
 # Inherit from frd device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
