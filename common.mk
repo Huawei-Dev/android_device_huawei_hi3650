@@ -88,6 +88,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4.vendor
     
 PRODUCT_PACKAGES += \
+    libshim_audioparams \
     libdng_sdk.vendor \
     libbinder_shim \
     libui_shim.vendor \
