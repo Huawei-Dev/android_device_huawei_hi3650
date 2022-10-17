@@ -18,7 +18,6 @@ COMMON_PATH := device/huawei/hi3650
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
-OVERRIDE_PRODUCT_COMPRESSED_APEX := false
 
 # Architecture
 TARGET_ARCH := arm64
