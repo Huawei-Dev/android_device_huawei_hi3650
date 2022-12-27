@@ -145,6 +145,9 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_hisi
 # Vendor Security patch level
 VENDOR_SECURITY_PATCH := 2024-01-05
 
+# Verity - Only needed for signing
+BOARD_AVB_ENABLE := false
+
 # Vndk
 PRODUCT_USE_VNDK_OVERRIDE := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
