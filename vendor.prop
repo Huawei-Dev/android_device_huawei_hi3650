@@ -52,6 +52,9 @@ lockscreen.rot_override=true
 ro.config.mmu_en=1
 persist.smart_pool=1
 
+# Graphics
+ro.hwui.render_ahead=20
+
 # Media
 persist.media.offload.enable=true
 persist.media.lowlatency.enable=false
