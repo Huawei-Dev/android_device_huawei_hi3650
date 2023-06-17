@@ -239,6 +239,7 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.hi3650 \
+    fstab.hi3650.ramdisk \
     fstab.modem \
     init.charger.rc \
     init.hi3650.connectivity.rc \
