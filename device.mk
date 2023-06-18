@@ -61,6 +61,10 @@ PRODUCT_PACKAGES += \
     
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.a2dp@1.0.vendor
+    
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl
 
 # ConfigStore
 PRODUCT_PACKAGES += \
