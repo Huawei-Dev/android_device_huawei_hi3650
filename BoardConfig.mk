@@ -65,6 +65,7 @@ TARGET_SCREEN_DENSITY := 480
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/prebuilts/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/prebuilts/compatibility_matrix.xml
 
 # Kernel
 BOARD_KERNEL_PAGESIZE := 2048
