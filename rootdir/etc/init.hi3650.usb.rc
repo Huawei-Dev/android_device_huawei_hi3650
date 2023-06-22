@@ -53,7 +53,10 @@ on init
     mkdir /dev/usb-ffs 0775 shell system
     mkdir /dev/usb-ffs/adb 0770 shell system
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=1000,rmode=0770,fmode=0660
-
+    
+    setprop ro.adb.nonblocking_ffs 0
+    setprop persist.adb.nonblocking_ffs 0
+    
 on boot
     chown system system /sys/devices/platform/ff200000.hisi_usb/plugusb
     chmod 0660 /sys/devices/platform/ff200000.hisi_usb/plugusb
