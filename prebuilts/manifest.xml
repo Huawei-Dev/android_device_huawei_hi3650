@@ -250,6 +250,15 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>vendor.huawei.hardware.camera.factory</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICameraFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.huawei.hardware.gnss</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
