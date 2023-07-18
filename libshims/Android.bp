@@ -10,3 +10,9 @@ cc_library_shared {
     shared_libs: ["liblog"],
     vendor: true,
 }
+
+cc_library_shared {
+    name: "guivnd",
+    shared_libs: ["libgui_vendor"],
+    vendor: true,
+}

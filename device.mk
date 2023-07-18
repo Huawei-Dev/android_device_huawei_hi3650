@@ -70,7 +70,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libui_shim.vendor \
     libgui_vendor \
-    libsensor_vendor
+    libsensor_vendor \
+    guivnd
 
 # ConfigStore
 PRODUCT_PACKAGES += \
