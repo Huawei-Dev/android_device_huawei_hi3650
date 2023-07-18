@@ -67,7 +67,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl
     
 PRODUCT_PACKAGES += \
-    libui_shim
+    libui_shim.vendor
 
 # ConfigStore
 PRODUCT_PACKAGES += \
