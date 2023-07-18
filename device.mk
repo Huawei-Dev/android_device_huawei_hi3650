@@ -68,9 +68,12 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64
     
 PRODUCT_PACKAGES += \
+    libdng_sdk.vendor \
     libui_shim.vendor \
+    libpiex_shim \
     libgui_vendor \
     libsensor_vendor \
+    libshim_ui \
     guivnd
 
 # ConfigStore
