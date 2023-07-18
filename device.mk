@@ -69,6 +69,7 @@ PRODUCT_PACKAGES += \
     
 PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
+    libbinder_shim \
     libui_shim.vendor \
     libpiex_shim \
     libgui_vendor \
