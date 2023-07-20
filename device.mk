@@ -73,6 +73,7 @@ PRODUCT_PACKAGES += \
     libpiex_shim \
     libgui_vendor \
     libsensor_vendor \
+    libshim_hwcam \
     libshim_ui \
     guivnd
 
