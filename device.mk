@@ -132,7 +132,7 @@ PRODUCT_PACKAGES += \
 
 # MAC Loader
 PRODUCT_PACKAGES += \
-    mac_nvme
+    hisi_init
     
 # Media
 PRODUCT_PACKAGES += \
