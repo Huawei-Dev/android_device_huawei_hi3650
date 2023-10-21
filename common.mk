@@ -286,7 +286,7 @@ PRODUCT_PACKAGES += \
     libtinyxml2_shim.vendor
     
 PRODUCT_PACKAGES += \
-    libstdc++.vendor \
+    libstdc++_vendor \
     libpcap.vendor
     
 # Soong namespaces
