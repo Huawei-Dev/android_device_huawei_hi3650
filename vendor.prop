@@ -88,6 +88,9 @@ ro.config.hw_perfgenius=true
 ro.config.hw_board_ipa=true
 persist.irqbalance.enable=true
 
+# rcc module
+ro.config.enable_rcc=true
+
 # RIL
 ro.config.ipv4.mtu=1400
     
