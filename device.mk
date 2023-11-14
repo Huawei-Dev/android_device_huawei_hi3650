@@ -261,6 +261,7 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor
     
 PRODUCT_PACKAGES += \
+    libprotobuf-cpp-lite-v29 \
     libui-v28
 
 PRODUCT_FULL_TREBLE_OVERRIDE := true
