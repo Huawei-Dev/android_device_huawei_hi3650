@@ -918,8 +918,14 @@ service thermal-daemon /vendor/bin/thermal-daemon
     class main
     user system
     group system
+    
+service hivwserver /vendor/bin/hivwserver
+    class vowifi
+    user system
+    group audio inet net_bt net_bt_admin net_bw_acct system
 	
 on property:ro.config.hw_vowifi=true
+    class_start vowifi
     start iked
 
 on property:persist.irqbalance.enable=true
