@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PATH := device/huawei/btv
+DEVICE_PATH := device/huawei/beethoven
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
@@ -39,7 +39,7 @@ TARGET_BOARD_PLATFORM_GPU := Mali-T880
 BOARD_VENDOR_PLATFORM := hi3650
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := hi3650,btv
+TARGET_OTA_ASSERT_DEVICE := hi3650,btv,beethoven
 
 # Android Q
 BUILD_BROKEN_DUP_RULES := true
@@ -78,7 +78,7 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x07b88000 -
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image.gz
-TARGET_KERNEL_SOURCE := kernel/huawei/btv
+TARGET_KERNEL_SOURCE := kernel/huawei/beethoven
 TARGET_KERNEL_CONFIG := hisi_3650_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_VERSION := 4.4
@@ -133,7 +133,7 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hi3650
 TARGET_RECOVERY_DEVICE_MODULES := libinit_hi3650
 
 # Sepolicy
-BOARD_SEPOLICY_DIRS += device/huawei/btv/sepolicy
+BOARD_SEPOLICY_DIRS += device/huawei/beethoven/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Wifi
@@ -149,4 +149,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 VENDOR_SECURITY_PATCH := 2023-10-06
 
 # inherit from the proprietary version
--include vendor/huawei/btv/BoardConfigVendor.mk
+-include vendor/huawei/beethoven/BoardConfigVendor.mk

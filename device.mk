@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/huawei/btv
+LOCAL_PATH := device/huawei/beethoven
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    device/huawei/btv
+    device/huawei/beethoven
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
@@ -332,4 +332,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml
 
-$(call inherit-product, vendor/huawei/btv/btv-vendor.mk)
+$(call inherit-product, vendor/huawei/beethoven/beethoven-vendor.mk)

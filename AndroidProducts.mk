@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-COMMON_LUNCH_CHOICES := lineage_btv-userdebug
+COMMON_LUNCH_CHOICES := lineage_beethoven-userdebug
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/lineage_btv.mk
+	$(LOCAL_DIR)/lineage_beethoven.mk
