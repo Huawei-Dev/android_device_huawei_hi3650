@@ -44,25 +44,17 @@
 /vendor/bin/irqbalance								u:object_r:irqbalance_exec:s0
 /vendor/bin/CameraDaemon							u:object_r:hwcamcfgsvr_exec:s0
 
-/dev/block/bootdevice/by-name/misc						u:object_r:misc_dev_block:s0
-/dev/block/bootdevice/by-name/modem_om					u:object_r:mke2fs_blkdev:s0
-/dev/block/bootdevice/by-name/modemnvm_img					u:object_r:mke2fs_blkdev:s0
-/dev/block/bootdevice/by-name/oeminfo						u:object_r:hwoem_partition_device:s0
-/dev/block/bootdevice/by-name/nvme						u:object_r:nve_block_device:s0
-/dev/block/bootdevice/by-name/splash2						u:object_r:splash2_block_device:s0
-/dev/block/bootdevice/by-name/userdata					u:object_r:userdata_block_device:s0
-
 /dev/dsm									u:object_r:dmd_device:s0
 
 # Rootfs
 /produce(/.*)?									u:object_r:system_file:s0
 /splash2(/.*)?         							u:object_r:splash2_file:s0
-/3rdmodem(/.*)?								u:object_r:modem_log_file:s0
-/3rdmodemnvm(/.*)?								u:object_r:modem_log_file:s0
-/3rdmodemnvmbkp(/.*)?                                       			u:object_r:modem_log_file:s0
+/3rdmodem(/.*)?								u:object_r:modem_file:s0
+/3rdmodemnvm(/.*)?								u:object_r:modem_file:s0
+/3rdmodemnvmbkp(/.*)?                                       			u:object_r:modem_file:s0
 /sec_storage(/.*)?     							u:object_r:teecd_data_file:s0
-/modem_log(/.*)?       							u:object_r:modem_log_file:s0
-/mnvm2:0(/.*)?									u:object_r:system_file:s0
+/modem_log(/.*)?       							u:object_r:modem_file:s0
+/mnvm2:0(/.*)?									u:object_r:modem_file:s0
 
 /hw_odm(/.*)?          							u:object_r:rootfs:s0
 
