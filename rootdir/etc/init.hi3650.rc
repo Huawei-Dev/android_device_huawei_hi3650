@@ -285,7 +285,6 @@ on post-fs-data
 
     symlink /splash2/sim/offlinelogs /data/offlinelogs
 
-    mkdir /modem_log
     mkdir /modem_log/log 0665
     mkdir /modem_log/DrvLog 0665
     mkdir /modem_log/DrvLog/Sim0 0665
