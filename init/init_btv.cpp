@@ -49,6 +49,8 @@ static void set_model(const char *model) {
     property_override_3x("ro.product.system.name", "ro.product.system_ext.name", "ro.product.vendor.name", model);
     property_override_3x("ro.product.device", "ro.product.odm.device", "ro.product.product.device", model);
     property_override_3x("ro.product.system.device", "ro.product.system_ext.device", "ro.product.vendor.device", model);
+    property_override_3x("ro.product.model", "ro.product.odm.model", "ro.product.product.model", model);
+    property_override_3x("ro.product.system.model", "ro.product.system_ext.model", "ro.product.vendor.model", model);
 }
 
 void vendor_load_properties()
