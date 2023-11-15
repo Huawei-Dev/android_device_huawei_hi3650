@@ -65,7 +65,6 @@ void vendor_load_properties()
 
     if (buf.find("BTV_DL09") != std::string::npos) {
 	set_model("BTV-DL09");
-	property_override("net.tethering.noprovisioning", "true");
 	property_override("ro.build.description", "BTV-DL09-user 7.0 HUAWEIBEETHOVEN-DL09 C100B311 release-keys");
 	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
 	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
@@ -73,7 +72,6 @@ void vendor_load_properties()
     }
     else if (buf.find("BTV_L0J") != std::string::npos) {
 	set_model("BTV-L0J");
-	property_override("net.tethering.noprovisioning", "true");
 	property_override("ro.build.description", "BTV-L0J-user 7.0 HUAWEIBTV-L0J C137B365 release-keys");
 	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
 	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");

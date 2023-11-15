@@ -1,9 +1,7 @@
 # Audio
 ro.config.hw_music_lp=true
 ro.config.music_lp_vol=true
-persist.media.offload.enable=true
 ro.audio.offload_wakelock=false
-persist.media.lowlatency.enable=false
 
 # BT
 ro.bt.bdaddr_path=/data/vendor/bluedroid/macbt
@@ -37,17 +35,11 @@ ro.opengles.version=196610
 ro.config.widevine_level3=true
 drm.service.enabled=true
 
-ro.media.radar=0
-ro.config.enable_iaware=true
-
 # Fastbootd
 ro.fastbootd.available=true
 
 # Launcher
 lockscreen.rot_override=true
-
-# local
-gsm.fastdormancy.mode=3
 
 # FRP
 ro.frp.pst=/dev/block/platform/hi_mci.0/by-name/frp
@@ -61,32 +53,21 @@ ro.cust.cdrom=/dev/null
     
 # Media
 persist.media.offload.enable=true
+persist.media.lowlatency.enable=false
 media.stagefright.thumbnail.prefer_hw_codecs=true
-media.stagefright.enable-player=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-scan=true
 debug.stagefright.ccodec=0
-debug.stagefright.omx_default_rank.sw-audio=1
-debug.stagefright.omx_default_rank=0
 
 # Misc
 persist.sys.huawei.debug.on=1
-qemu.hw.mainkeys=0
     
 # Netflix
 ro.netflix.bsp_rev=Q660-13149-1
-
-# Performance
-ro.vendor.qti.sys.fw.bg_apps_limit=60
-ro.am.reschedule_service=true
-persist.sys.smart_power=2
 
 # Perfgenius
 ro.config.hw_perfgenius=true
 ro.config.hw_board_ipa=true
 persist.irqbalance.enable=true
+ro.config.enable_iaware=true
 
 # RCC module
 ro.config.enable_rcc=true
@@ -96,6 +77,7 @@ persist.vendor.recovery_update=false
 
 # RIL
 ro.config.ipv4.mtu=1400
+gsm.fastdormancy.mode=3
     
 # Sdcardfs
 ro.statsd.enable=false
@@ -117,9 +99,6 @@ debug.sf.enable_gl_backpressure=1
 wifi.interface=wlan0
 wifi.direct.interface=p2p-dev-wlan0
 
-# vndk
-ro.vendor.vndk.version=26.0.0
-
 # vowifi
 ro.config.hw_vowifi=true
 
@@ -130,8 +109,5 @@ persist.egl.support_vr=1
 # Touch
 persist.sys.fingersense=1
    
-# USB
-persist.sys.usb.config.extra=none
-
 # WiFi Display
 persist.debug.wfd.enable=1

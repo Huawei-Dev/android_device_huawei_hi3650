@@ -1,7 +1,6 @@
 on fs
     mount_all /vendor/etc/fstab.modem --early
     chown radio radio sys/devices/platform/balong_power/state
-    wait /sys/devices/platform/his_modem/modem_sysboot_start
     write /sys/devices/platform/his_modem/modem_sysboot_start 1
     
     wait /vendor/phone.prop
@@ -56,3 +55,7 @@ on property:ro.multi.rild=false
 on property:ro.config.dsds_mode=umts
     setprop ro.config.is_start_commril true
     setprop ro.config.default_commril_mode ULG_MODE
+    
+on property:sys.boot_completed=1
+    setprop net.tethering.noprovisioning true
+    setprop ro.config.hw_lte_support true
