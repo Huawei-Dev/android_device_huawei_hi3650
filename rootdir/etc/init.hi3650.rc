@@ -240,8 +240,6 @@ on fs
 
     mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
 
-    start vendor.mac_nvme
-
     restorecon /sys/class/graphics/fb0/lcd_cabc_mode
     
 on late-fs
@@ -264,6 +262,10 @@ on post-fs-data
     setprop init.svc.console stopped
     setprop persist.sys.kmemleak.debug 0
     start teecd
+    
+    wait /data/vendor/bluedroid
+    wait /data/vendor/wifi
+    start vendor.mac_nvme
     
     mkdir /splash2/sim 0770 root system
     mkdir /splash2/sim/offlinelogs 0770 root system
@@ -843,6 +845,7 @@ on charger
     
 # Start service
 service vendor.mac_nvme /vendor/bin/hw/mac_nvme
+    class main
     user root
     group bluetooth system wifi
     oneshot
