@@ -17,10 +17,6 @@ persist.sys.fast_h_max=50
 persist.sys.max_rdh_delay=0
 
 # Dalvik
-dalvik.vm.dex2oat-filter=speed
-dalvik.vm.dex2oat-threads=4
-dalvik.vm.image-dex2oat-filter=speed
-dalvik.vm.image-dex2oat-threads=4
 dalvik.vm.heapstartsize=16m
 dalvik.vm.heapgrowthlimit=384m
 dalvik.vm.heapsize=512m
