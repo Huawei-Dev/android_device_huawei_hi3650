@@ -49,10 +49,6 @@ TARGET_BOOTLOADER_BOARD_NAME := hi3650
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-
 # Camera
 MALLOC_SVELTE_FOR_LIBC32 := true
 
@@ -61,10 +57,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := /sys/class/leds/lcd_backlight0/brightness
 
 # Display
-TARGET_SCREEN_DENSITY := 420
-
-# Encryption
-TARGET_PROVIDES_KEYMASTER := true
+TARGET_SCREEN_DENSITY := 480
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/prebuilts/manifest.xml
@@ -128,13 +121,20 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_PROVIDES_LIBRIL := true
 
+# Sepolicy
+BOARD_SEPOLICY_DIRS += device/huawei/beethoven/sepolicy
+SELINUX_IGNORE_NEVERALLOWS := true
+
 # Vendor Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hi3650
 TARGET_RECOVERY_DEVICE_MODULES := libinit_hi3650
 
-# Sepolicy
-BOARD_SEPOLICY_DIRS += device/huawei/beethoven/sepolicy
-SELINUX_IGNORE_NEVERALLOWS := true
+# Vendor Security patch level
+VENDOR_SECURITY_PATCH := 2023-10-06
+
+# Vndk
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_USE_VNDK_OVERRIDE := true
 
 # Wifi
 BOARD_HOSTAPD_DRIVER := NL80211
@@ -145,8 +145,4 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
-# Vendor Security patch level
-VENDOR_SECURITY_PATCH := 2023-10-06
-
-# inherit from the proprietary version
 -include vendor/huawei/beethoven/BoardConfigVendor.mk

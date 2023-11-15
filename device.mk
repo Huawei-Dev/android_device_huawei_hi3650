@@ -16,36 +16,21 @@
 
 LOCAL_PATH := device/huawei/beethoven
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    device/huawei/beethoven
-
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+# AAPT conf
+PRODUCT_AAPT_CONFIG := normal 
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_CHARACTERISTICS := tablet
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
-    
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/cfg_btv_dcm_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_dcm_hisi.ini \
-    $(LOCAL_PATH)/prebuilts/cfg_btv_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_hisi.ini \
-    $(LOCAL_PATH)/prebuilts/cfg_btv_wifi_only_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_wifi_only_hisi.ini
-    
-# AAPT conf
-PRODUCT_AAPT_CONFIG := normal 
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
-PRODUCT_CHARACTERISTICS := tablet
 
-# Audio/Media
+# Audio
 PRODUCT_PACKAGES += \
     audio.primary.default \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
-    libaacwrapper \
     libaudioutils \
     libaudioroute \
     libtinyalsa \
@@ -154,14 +139,22 @@ PRODUCT_PACKAGES += \
     
 # Media
 PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-service
-    
-PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-service \
     libmockcasplugin
     
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/prebuilts/topazhp.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/topazhp.cfg \
     $(LOCAL_PATH)/prebuilts/vdec_atlas.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/vdec_atlas.cfg
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/prebuilts/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/prebuilts/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
 # Memtrack
 PRODUCT_PACKAGES += \
@@ -172,129 +165,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libxcollie
     
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power.stats@1.0-service.mock
-    
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/perfgenius_boost_policy.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfgenius_boost_policy.xml \
-    $(LOCAL_PATH)/prebuilts/perfgenius_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfgenius_config.xml \
-    $(LOCAL_PATH)/prebuilts/perfgenius_mode_policy.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfgenius_mode_policy.xml
-    
-# Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.hi3650 \
-    fstab.modem \
-    init.charger.rc \
-    init.hi3650.connectivity.rc \
-    init.hi3650.hisi.rc \
-    init.hi3650.lte.rc \
-    init.hi3650.power.rc \
-    init.hi3650.rc \
-    init.hi3650.usb.rc \
-    init.recovery.hi3650.rc \
-    ueventd.hi3650.rc
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.hi3650:$(TARGET_COPY_OUT_RAMDISK)/fstab.hi3650
-    
-# RIL
-PRODUCT_PACKAGES += \
-    android.hardware.radio.config@1.1 \
-    android.hardware.radio@1.1 \
-    android.hardware.radio.deprecated@1.0 \
-    librilutils \
-    reference-ril \
-    libprotobuf-cpp-full \
-    libtinyxml \
-    libxml2 \
-    mploader
-    
-# RRO configurations
+# Overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
+    
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
     WifiOverlay
     
-# Seccomp policy
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
-    
-# Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service
-    
-# Shims
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.common@1.0_types.vendor \
-    android.hardware.radio@1.0_types.vendor \
-    libtinyxml2_shim.vendor \
-    liblog_vendor
-    
-PRODUCT_PACKAGES += \
-    libstdc++.vendor \
-    libpcap.vendor
-    
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.0-service
-
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service.basic \
-    com.android.future.usb.accessory
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
-    
-# Vndk
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0.vendor \
-    libhidltransport \
-    libhidltransport.vendor \
-    libhwbinder \
-    libhwbinder.vendor
-    
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-lite-v29 \
-    libui-v28
-
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_USE_VNDK_OVERRIDE := true
- 
-# Vr
-PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl \
-    android.hardware.vr@1.0-service
-
-# Wi-Fi
-PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
-    hostapd \
-    wpa_supplicant \
-    wpa_supplicant.conf
-    
-include hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.oem_unlock_supported=1 \
-    ro.magic.api.version=0.1 \
-    ro.enable_boot_charger_mode=0 \
-    persist.sys.usb.config=manufacture,adb \
-    sys.usb.configfs=1 \
-    sys.usb.controller=ff100000.dwc3
-    
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.recovery_update=false
-    
-PRODUCT_GMS_CLIENTID_BASE := android-huawei
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -333,5 +214,117 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml
+    
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power.stats@1.0-service.mock
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/perfgenius_boost_policy.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfgenius_boost_policy.xml \
+    $(LOCAL_PATH)/prebuilts/perfgenius_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfgenius_config.xml \
+    $(LOCAL_PATH)/prebuilts/perfgenius_mode_policy.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfgenius_mode_policy.xml
+    
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.hi3650 \
+    fstab.modem \
+    init.charger.rc \
+    init.hi3650.connectivity.rc \
+    init.hi3650.hisi.rc \
+    init.hi3650.lte.rc \
+    init.hi3650.power.rc \
+    init.hi3650.rc \
+    init.hi3650.usb.rc \
+    init.recovery.hi3650.rc \
+    ueventd.hi3650.rc
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.hi3650:$(TARGET_COPY_OUT_RAMDISK)/fstab.hi3650
+    
+# RIL
+PRODUCT_PACKAGES += \
+    android.hardware.radio.deprecated@1.0 \
+    android.hardware.radio@1.0 \
+    librilutils \
+    mploader
+    
+# Seccomp policy
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+    
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service
+    
+# Shims
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.common@1.0_types.vendor \
+    android.hardware.radio@1.0_types.vendor \
+    libtinyxml2_shim.vendor \
+    liblog_vendor
+    
+PRODUCT_PACKAGES += \
+    libstdc++.vendor \
+    libpcap.vendor
+    
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    device/huawei/beethoven
+    
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service.basic \
+    com.android.future.usb.accessory
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+    
+# Vndk
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0.vendor \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
+    
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-lite-v29 \
+    libui-v28
+
+# Vr
+PRODUCT_PACKAGES += \
+    android.hardware.vr@1.0-impl \
+    android.hardware.vr@1.0-service
+
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    wpa_supplicant.conf \
+    wpa_supplicant \
+    hostapd
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/cfg_btv_dcm_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_dcm_hisi.ini \
+    $(LOCAL_PATH)/prebuilts/cfg_btv_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_hisi.ini \
+    $(LOCAL_PATH)/prebuilts/cfg_btv_wifi_only_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_wifi_only_hisi.ini
+    
+include hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.oem_unlock_supported=1 \
+    ro.magic.api.version=0.1 \
+    ro.enable_boot_charger_mode=0 \
+    persist.sys.usb.config=manufacture,adb \
+    sys.usb.configfs=1 \
+    sys.usb.controller=ff100000.dwc3
+    
 $(call inherit-product, vendor/huawei/beethoven/beethoven-vendor.mk)

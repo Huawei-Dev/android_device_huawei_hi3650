@@ -23,22 +23,16 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from frd device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1600
 
 PRODUCT_GMS_CLIENTID_BASE := android-huawei
 
-TARGET_VENDOR_PRODUCT_NAME := btv
-
 LINEAGE_BUILDTYPE := RELEASE
 
 PRODUCT_NAME := lineage_beethoven
 PRODUCT_DEVICE := beethoven
 PRODUCT_BRAND := Huawei
-BOARD_VENDOR := huawei
 PRODUCT_MANUFACTURER := Huawei
 PRODUCT_MODEL := MediaPad-M3
-TARGET_VENDOR := Huawei

@@ -1,5 +1,3 @@
-firmware_directories /vendor/firmware/
-
 /dev/ion                			0664 system system
 /dev/mali0              			0666 system system
 /dev/hisi_jpu           			0660 system system
