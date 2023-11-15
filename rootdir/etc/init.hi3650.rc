@@ -136,34 +136,6 @@ on init
     chmod 0660 /sys/kernel/mntn/switch/tasklet
     chmod 0660 /sys/kernel/mntn/switch/worker
 
-    chown system system /dev/cpuctl
-    chown system system /dev/cpuctl/tasks
-    chmod 0666 /dev/cpuctl/tasks
-    write /dev/cpuctl/cpu.shares 1024
-    write /dev/cpuctl/cpu.rt_runtime_us 800000
-    write /dev/cpuctl/cpu.rt_period_us 1000000
-
-    mkdir /dev/cpuctl/bg_non_interactive
-    chown system system /dev/cpuctl/bg_non_interactive/tasks
-    chmod 0666 /dev/cpuctl/bg_non_interactive/tasks
-    write /dev/cpuctl/bg_non_interactive/cpu.shares 52
-    write /dev/cpuctl/bg_non_interactive/cpu.rt_runtime_us 700000
-    write /dev/cpuctl/bg_non_interactive/cpu.rt_period_us 1000000
-
-    mkdir /dev/cpuctl/limit_fg
-    chown system system /dev/cpuctl/limit_fg/tasks
-    chmod 644 /dev/cpuctl/limit_fg/tasks
-    write /dev/cpuctl/limit_fg/cpu.shares 1024
-    write /dev/cpuctl/limit_fg/cpu.rt_runtime_us 800000
-    write /dev/cpuctl/limit_fg/cpu.rt_period_us 1000000
-
-    mkdir /dev/cpuctl/bg_non_interactive/limit_bg
-    chown system system /dev/cpuctl/bg_non_interactive/limit_bg/tasks
-    chmod 644 /dev/cpuctl/bg_non_interactive/limit_bg/tasks
-    write /dev/cpuctl/bg_non_interactive/limit_bg/cpu.shares 1024
-    write /dev/cpuctl/bg_non_interactive/limit_bg/cpu.rt_runtime_us 700000
-    write /dev/cpuctl/bg_non_interactive/limit_bg/cpu.rt_period_us 1000000
-
     mkdir /dev/cpuset/foreground
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/mems 0
