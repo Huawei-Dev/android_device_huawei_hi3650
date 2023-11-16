@@ -8,6 +8,7 @@
 /vendor/bin/hw/vendor.huawei.hardware.graphics.displayeffect@1.0-service		u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/vendor.huawei.hardware.graphics.mediacomm@2.0-service		u:object_r:hal_media_default_exec:s0
 /vendor/bin/hw/vendor.huawei.hardware.hisupl@1.0-service						u:object_r:hal_gnss_default_exec:s0
+/vendor/bin/hw/vendor.huawei.hardware.hivrar@1.0-service						u:object_r:hal_hivrar_default_exec:s0
 /vendor/bin/hw/vendor.huawei.hardware.hwdisplay.displayengine@1.0-service	u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/vendor.huawei.hardware.hwdisplay@1.0-service					u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/vendor.huawei.hardware.iawareperf@1.0-service					u:object_r:hal_power_default_exec:s0
