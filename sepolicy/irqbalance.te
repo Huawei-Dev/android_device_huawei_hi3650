@@ -1,6 +1,6 @@
 # irqbalance daemon
 type irqbalance, domain;
-type irqbalance_exec, exec_type, file_type;
+type irqbalance_exec, exec_type, vendor_file_type, file_type;
 
 # Started by init
 init_daemon_domain(irqbalance)
