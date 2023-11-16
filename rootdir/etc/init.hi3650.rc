@@ -588,7 +588,7 @@ on data_not_ready
     write /proc/post-fs-data 0
     write /proc/data-ready 0
     
-on charger
+on property:init.svc.vendor.charger=running
     # Lock to lowest frequency on charger mode
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor powersave    
