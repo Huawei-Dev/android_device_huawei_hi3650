@@ -1,0 +1,11 @@
+on post-fs-data
+    wait /data/vendor/bluedroid
+    wait /data/vendor/wifi
+    start  vendor.mac_nvme
+
+service vendor.mac_nvme /vendor/bin/hw/mac_nvme
+    class main
+    user root
+    group bluetooth system wifi
+    oneshot
+    disabled

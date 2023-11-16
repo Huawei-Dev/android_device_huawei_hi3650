@@ -228,10 +228,6 @@ on post-fs-data
     setprop persist.sys.kmemleak.debug 0
     start teecd
     
-    wait /data/vendor/bluedroid
-    wait /data/vendor/wifi
-    start vendor.mac_nvme
-    
     mkdir /splash2/sim 0770 root system
     mkdir /splash2/sim/offlinelogs 0770 root system
     write /splash2/sim/offlinelogs/balong_modem1_simoffline.txt  0
@@ -808,13 +804,6 @@ on charger
     import /vendor/etc/init/hw/init.charger.rc
     
 # Start service
-service vendor.mac_nvme /vendor/bin/hw/mac_nvme
-    class main
-    user root
-    group bluetooth system wifi
-    oneshot
-    disabled
-
 service atcmdserver /vendor/bin/atcmdserver
     class main
     group root system nfc graphics audio camera
