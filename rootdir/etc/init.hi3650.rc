@@ -111,11 +111,11 @@ on init
     chown system system /sys/class/thermal/thermal_zone0/sustainable_power
     chmod 0664 /sys/class/thermal/thermal_zone0/sustainable_power
 
-    chown system system /sys/kernel/hmp/task_fork_on_bigcluster
-    chmod 0664 /sys/kernel/hmp/task_fork_on_bigcluster
+    chown system system /sys/kernel/eas/boost
+    chmod 0664 /sys/kernel/eas/boost
 
-    chown system system /sys/kernel/hmp/boost
-    chmod 0664 /sys/kernel/hmp/boost
+    chown system system /sys/kernel/eas/capacity_margin
+    chmod 0664 /sys/kernel/eas/capacity_margin
 
     chown system system /sys/kernel/perfhub/cpuaffinity
     chmod 0660 /sys/kernel/perfhub/cpuaffinity
@@ -182,6 +182,15 @@ on init
     chown system system /dev/cpuset/vip
     chown system system /dev/cpuset/vip/tasks
     chmod 0664 /dev/cpuset/vip/tasks
+    
+    mkdir /dev/stune/vip
+    chown system system /dev/stune/vip
+    chown system system /dev/stune/vip/tasks
+    chmod 0664 /dev/stune/vip/tasks
+    chown system system /dev/stune/vip/schedtune.boost
+    chmod 0664 /dev/stune/vip/schedtune.boost
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+    write /dev/stune/vip/schedtune.prefer_idle 1
     
     chown system system /sys/devices/platform/fingerprint/read_image_flag
     chmod 0660 /sys/devices/platform/fingerprint/read_image_flag
