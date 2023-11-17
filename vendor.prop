@@ -77,9 +77,7 @@ persist.sys.huawei.debug.on=1
 # Netflix
 ro.netflix.bsp_rev=Q660-13149-1
 
-# Perfgenius
-ro.config.hw_perfgenius=true
-ro.config.hw_board_ipa=true
+# Power
 persist.irqbalance.enable=true
 ro.config.enable_iaware=true
 
