@@ -6,7 +6,6 @@ on post-fs-data
 
     mkdir /data/vendor/gnss 0770 system system
     
-    mkdir /data/vendor/tombstones 0771 system system
     mkdir /data/vendor/media 0770 mediacodec media
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
