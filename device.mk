@@ -221,7 +221,7 @@ PRODUCT_COPY_FILES += \
     
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power.stats@1.0-service.mock
+    android.hardware.power-service.hisi-libperfmgr
     
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/perfgenius_boost_policy.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perfgenius_boost_policy.xml \
@@ -274,7 +274,10 @@ PRODUCT_PACKAGES += \
     
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    device/huawei/beethoven
+    device/huawei/beethoven \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    device/huawei/beethoven/power-libperfmgr
     
 # Thermal
 PRODUCT_PACKAGES += \
