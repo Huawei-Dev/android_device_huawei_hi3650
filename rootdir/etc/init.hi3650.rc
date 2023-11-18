@@ -833,13 +833,6 @@ service teecd /vendor/bin/teecd
     user root
     group root readproc
     
-service irqbalance /vendor/bin/irqbalance
-    user root
-    group system
-    disabled
-    oneshot
-    writepid /dev/cpuset/background/tasks
-    
 service iked /vendor/bin/iked
     class late_start
     user root
@@ -860,9 +853,6 @@ on property:ro.config.hw_vowifi=true
     class_start vowifi
     start iked
 
-on property:persist.irqbalance.enable=true
-    start irqbalance
-    
 on property:sys.userdata_is_ready=1
     start thermal-daemon
     

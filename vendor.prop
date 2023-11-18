@@ -77,10 +77,6 @@ persist.sys.huawei.debug.on=1
 # Netflix
 ro.netflix.bsp_rev=Q660-13149-1
 
-# Power
-persist.irqbalance.enable=true
-ro.config.enable_iaware=true
-
 # RCC module
 ro.config.enable_rcc=true
 
