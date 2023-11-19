@@ -332,7 +332,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1 \
     ro.magic.api.version=0.1 \
     ro.enable_boot_charger_mode=0 \
-    persist.sys.usb.config=manufacture,adb \
-    sys.usb.configfs=1
+    persist.sys.usb.config=manufacture,adb
     
 $(call inherit-product, vendor/huawei/beethoven/beethoven-vendor.mk)
