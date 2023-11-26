@@ -646,6 +646,18 @@ on property:ro.config.enable_rcc=true
     write /sys/kernel/rcc/max_anon_clean_size 448M
     write /sys/kernel/rcc/enable 1
     
+service vendor.folio_daemon /system/bin/folio_daemon
+    class late_start
+    user system
+    group system uhid
+    disabled
+
+on property:init.svc.zygote=running
+    start vendor.folio_daemon
+
+on property:init.svc.zygote=stopped
+    stop vendor.folio_daemon
+
 service vendor.hwcomposer-2-2 /vendor/bin/hw/android.hardware.graphics.composer@2.2-service
     override
     class hal animation
