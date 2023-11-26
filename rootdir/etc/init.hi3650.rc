@@ -651,6 +651,18 @@ service CameraDaemon /vendor/bin/CameraDaemon hi3650 BTV
     user media
     group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system
     
+service vendor.folio_daemon /system/bin/folio_daemon
+    class late_start
+    user system
+    group system uhid
+    disabled
+
+on property:init.svc.zygote=running
+    start vendor.folio_daemon
+
+on property:init.svc.zygote=stopped
+    stop vendor.folio_daemon
+
 on property:sys.boot_completed=1
     exec - system system -- /system/bin/service call SurfaceFlinger 1008 i32 1
 
