@@ -125,6 +125,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/fingerprint.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fingerprint.kl \
     $(LOCAL_PATH)/prebuilts/touch_key.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/touch_key.kl
     
+# Folio
+PRODUCT_PACKAGES += \
+    folio_daemon
+
 # Gralloc
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
