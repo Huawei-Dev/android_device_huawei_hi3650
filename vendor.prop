@@ -2,6 +2,7 @@
 ro.config.hw_music_lp=true
 ro.config.music_lp_vol=true
 ro.audio.offload_wakelock=false
+ro.hardware.audio.primary=hisi_wrapper
 
 # BT
 ro.bt.bdaddr_path=/data/vendor/bluedroid/macbt
