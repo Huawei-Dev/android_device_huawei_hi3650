@@ -28,6 +28,12 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void property_override_2x(char const product_prop[], char const system_prop[], char const value[])
+{
+    property_override(product_prop, value);
+    property_override(system_prop, value);
+}
+
 void property_override_3x(char const product_prop[], char const system_prop[], char const vendor_prop[], char const value[])
 {
     property_override(product_prop, value);
@@ -47,10 +53,13 @@ static void set_model(const char *model) {
     property_override_3x("ro.hw.oemName", "ro.lineage.device", "ro.build.product", model);
     property_override_3x("ro.product.name", "ro.product.odm.name", "ro.product.product.name", model);
     property_override_3x("ro.product.system.name", "ro.product.system_ext.name", "ro.product.vendor.name", model);
+    property_override_2x("ro.product.odm_dlkm.name", "ro.product.vendor_dlkm.name", model);
     property_override_3x("ro.product.device", "ro.product.odm.device", "ro.product.product.device", model);
     property_override_3x("ro.product.system.device", "ro.product.system_ext.device", "ro.product.vendor.device", model);
+    property_override_2x("ro.product.odm_dlkm.device", "ro.product.vendor_dlkm.device", model);
     property_override_3x("ro.product.model", "ro.product.odm.model", "ro.product.product.model", model);
     property_override_3x("ro.product.system.model", "ro.product.system_ext.model", "ro.product.vendor.model", model);
+    property_override_2x("ro.product.odm_dlkm.model", "ro.product.vendor_dlkm.model", model);
 }
 
 void vendor_load_properties()
@@ -70,6 +79,7 @@ void vendor_load_properties()
 	property_override("ro.build.description", "BTV-DL09-user 7.0 HUAWEIBEETHOVEN-DL09 C100B311 release-keys");
 	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
 	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
+	property_override_2x("ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
 	
     }
     else if (buf.find("BTV_L0J") != std::string::npos) {
@@ -77,6 +87,7 @@ void vendor_load_properties()
 	property_override("ro.build.description", "BTV-L0J-user 7.0 HUAWEIBTV-L0J C137B365 release-keys");
 	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
 	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
+	property_override_2x("ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
     }
     else if (buf.find("BTV_W09") != std::string::npos) {
 	set_model("BTV-W09");
@@ -85,6 +96,7 @@ void vendor_load_properties()
 	property_override("ro.build.description", "BTV-W09-user 7.0 HUAWEIBEETHOVEN-W09 C100B308 release-keys");
 	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-W09/C100B308:user/release-keys");
 	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-W09/C100B308:user/release-keys");
+	property_override_2x("ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-W09/C100B308:user/release-keys");
     }
     else {
 	property_override("ro.product.model", "UNKNOWN");
