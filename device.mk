@@ -78,11 +78,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
     
-# Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.sf.disable_blurs=1 \
-    ro.sf.blurs_are_expensive=1
-    
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -298,10 +293,6 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     device/huawei/beethoven/power-libperfmgr
-    
-# SurfaceFlinger
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.supports_background_blur=0
     
 # Thermal
 PRODUCT_PACKAGES += \
