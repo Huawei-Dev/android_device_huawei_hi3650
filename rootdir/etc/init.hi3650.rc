@@ -219,6 +219,8 @@ on fs
 on late-fs
     mount_all /vendor/etc/fstab.hi3650 --late
     
+    start audio_patch
+    
 on post-fs
     chown system system /proc/uid_cputime/show_uid_stat
     chmod 0440 /proc/uid_cputime/show_uid_stat
@@ -856,6 +858,12 @@ on property:ro.config.hw_vowifi=true
 
 on property:sys.userdata_is_ready=1
     start thermal-daemon
+    
+service audio_patch /vendor/bin/audio_patch
+    class main
+    user root
+    group system
+    oneshot
     
 on property:ro.config.enable_rcc=true
     write /sys/kernel/rcc/event PASSIVE_MODE
