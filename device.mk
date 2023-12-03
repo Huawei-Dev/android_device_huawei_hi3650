@@ -247,11 +247,10 @@ PRODUCT_PACKAGES += \
     init.hi3650.power.rc \
     init.hi3650.rc \
     init.hi3650.usb.rc \
-    init.recovery.hi3650.rc \
     ueventd.hi3650.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.hi3650:$(TARGET_COPY_OUT_RAMDISK)/fstab.hi3650
+    $(LOCAL_PATH)/rootdir/etc/init.recovery.hi3650.rc:$(TARGET_RECOVERY_OUT)/root/init.recovery.hi3650.rc
     
 # RIL
 PRODUCT_PACKAGES += \

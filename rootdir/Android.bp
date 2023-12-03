@@ -1,0 +1,80 @@
+//
+// Copyright (C) 2023 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "fstab.hi3650",
+    src: "fstab.hi3650",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "fstab.modem",
+    src: "fstab.modem",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.charger.rc",
+    src: "etc/init.charger.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.hi3650.connectivity.rc",
+    src: "etc/init.hi3650.connectivity.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.hi3650.rc",
+    src: "etc/init.hi3650.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.hi3650.hisi.rc",
+    src: "etc/init.hi3650.hisi.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.hi3650.lte.rc",
+    src: "etc/init.hi3650.lte.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.hi3650.power.rc",
+    src: "etc/init.hi3650.power.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.hi3650.rc",
+    src: "etc/init.hi3650.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.hi3650.usb.rc",
+    src: "etc/init.hi3650.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "ueventd.hi3650.rc",
+    filename: "ueventd.rc",
+    src: "etc/ueventd.hi3650.rc",
+    vendor: true,
+}
