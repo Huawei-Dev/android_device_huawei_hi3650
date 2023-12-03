@@ -39,6 +39,9 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.bluetooth.audio@2.0-impl
+    
+PRODUCT_PACKAGES += \
+    android.hardware.soundtrigger@2.0.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/audio_patch:$(TARGET_COPY_OUT_VENDOR)/bin/audio_patch
@@ -69,6 +72,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service
+    
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.a2dp@1.0.vendor
 
 # ConfigStore
 PRODUCT_PACKAGES += \
