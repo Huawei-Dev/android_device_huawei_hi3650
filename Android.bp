@@ -8,5 +8,6 @@ subdirs = [
     "mac_nvme",
     "mploader",
     "power-libperfmgr",
+    "rootdir",
     "touch",
 ]
