@@ -32,13 +32,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.hi3650.rc",
-    src: "etc/init.hi3650.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.hi3650.hisi.rc",
     src: "etc/init.hi3650.hisi.rc",
     sub_dir: "init/hw",
