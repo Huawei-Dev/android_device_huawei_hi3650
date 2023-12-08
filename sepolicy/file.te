@@ -4,7 +4,7 @@ type sysfs_touchscreen, sysfs_type, fs_type;
 
 type modem_file, file_type;
 
-type splash2_file, file_type, contextmount_type, vendor_file_type;
+type splash2_file, file_type;
 
 type dmd_device, dev_type;
 type misc_dev_block, dev_type;
