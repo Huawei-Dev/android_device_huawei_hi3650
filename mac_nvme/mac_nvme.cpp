@@ -117,13 +117,13 @@ int main() {
 
     ALOGI("Writing WLAN MAC to %s", WLAN_MAC_FILE);
     write_mac(WLAN_MAC_FILE, mac_wlan.c_str());
-    chmod(WLAN_MAC_FILE, 0644);
-    chown(WLAN_MAC_FILE, 1000, 1010);
+    chmod(WLAN_MAC_FILE, 0666);
+    chown(WLAN_MAC_FILE, 1010, 1010);
     ALOGI("Success!");
 
     ALOGI("Writing BT MAC to %s", BT_MAC_FILE);
     write_mac(BT_MAC_FILE, mac_bt.c_str());
-    chmod(BT_MAC_FILE, 0644);
-    chown(BT_MAC_FILE, 1000, 1002);
+    chmod(BT_MAC_FILE, 0666);
+    chown(BT_MAC_FILE, 1002, 1002);
     ALOGI("Success!");
 }
