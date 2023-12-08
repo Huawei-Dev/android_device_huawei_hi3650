@@ -206,6 +206,14 @@ on fs
     start oeminfo_nvm
     
     mount_all /vendor/etc/fstab.hi3650 --early
+    
+    restorecon /splash2
+    chmod 775 /splash2
+    chown root system /splash2
+
+    mkdir /splash2/log 0775 system log
+    symlink /splash2/fac_log /data/log/fac_log
+    symlink /splash2 /log
 
     mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
 
@@ -327,6 +335,9 @@ on post-fs-data
 
     mkdir /splash2/boot_fail 0775 root system
     restorecon_recursive /splash2/boot_fail
+    
+    mkdir /splash2/storage 0770 root system
+    restorecon_recursive /splash2/storage
     
     mkdir /data/misc/radvd 0770 root root
     mkdir /data/misc/dhcp6s 0770 root root
