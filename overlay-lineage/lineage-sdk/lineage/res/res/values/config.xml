@@ -26,7 +26,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+    <integer name="config_deviceHardwareKeys">64</integer>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -40,7 +40,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">65</integer>
+    <integer name="config_deviceHardwareWakeKeys">64</integer>
 
     <!-- All the capabilities of the LEDs on this device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -59,8 +59,9 @@
          to 75. -->
     <integer name="config_deviceLightCapabilities">235</integer>
     
-    <!-- Whether device has screen with higher aspect ratio -->
-    <bool name="config_haveHigherAspectRatioScreen">true</bool>
+    <!-- Whether to cleanup fingerprints upon connection to the daemon and when
+         user switches -->
+    <bool name="config_cleanupUnusedFingerprints">false</bool>
     
     <!-- Whether to post reset runnable for all clients. Needed for some older
          vendor fingerprint HAL implementations. -->
