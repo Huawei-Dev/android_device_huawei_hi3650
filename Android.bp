@@ -3,7 +3,7 @@ subdirs = [
     "init",
     "libshims",
     "libxcollie",
-    "lights",
+    "light",
     "livedisplay",
     "mac_nvme",
     "mploader",
