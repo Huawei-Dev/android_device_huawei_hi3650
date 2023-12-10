@@ -76,8 +76,6 @@ ro.config.ipv4.mtu=1400
 gsm.fastdormancy.mode=3
     
 # Sdcardfs
-ro.statsd.enable=false
-ro.sys.sdcardfs=1
 persist.sys.adoptable_fbe=true
 
 # Sensors
