@@ -587,8 +587,6 @@ on boot
     chown root radio /sys/kernel/sim/sim_hotplug_state
 
     write /splash2/sim/sim_pin_file.bin  "000000"
-    chown system system /sys/class/leds/lcd_backlight0/brightness
-    chmod 644 /sys/class/leds/lcd_backlight0/brightness
 
     chown system system /sys/devices/platform/huawei_sensor/acc_info
     chown system system /sys/devices/platform/huawei_sensor/mag_info
