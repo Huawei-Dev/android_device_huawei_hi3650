@@ -39,7 +39,7 @@
     <value>3.1</value>
   </array>
   <array name="cpu.clusters.cores">
-        <value>4</value>
+        <value>8</value>
   </array>
   <array name="cpu.core_speeds.cluster0">
     <value>480000</value> <!-- 480 MHz CPU speed -->
