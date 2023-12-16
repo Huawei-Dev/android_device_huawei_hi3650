@@ -207,13 +207,8 @@ on fs
     
     mount_all /vendor/etc/fstab.hi3650 --early
     
-    restorecon /splash2
-    chmod 775 /splash2
-    chown root system /splash2
-
     mkdir /splash2/log 0775 system log
     symlink /splash2/fac_log /data/log/fac_log
-    symlink /splash2 /log
 
     mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
 
@@ -376,10 +371,6 @@ on early-boot
     chown radio radio /3rdmodemnvm/viacbp82d/fsm_1.img
     chown radio radio /3rdmodemnvm/viacbp82d/fsm_cl.img
     chown radio radio /3rdmodemnvmbkp/viacbp82d/fsm_cl_backup.img
-
-    chmod 0750 /3rdmodem/
-    chmod 0750 /3rdmodemnvm/
-    chmod 0750 /3rdmodemnvmbkp/
 
     chmod 0740 /3rdmodem/modem_image
     chmod 0740 /3rdmodem/modem_image/viacbp82d
