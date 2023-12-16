@@ -205,6 +205,8 @@ on fs
     wait /dev/block/bootdevice/by-name/oeminfo
     start oeminfo_nvm
     
+    wait /dev/block/bootdevice/by-name/system
+    wait /dev/block/bootdevice/by-name/userdata
     mount_all /vendor/etc/fstab.hi3650 --early
     
     mkdir /splash2/log 0775 system log
