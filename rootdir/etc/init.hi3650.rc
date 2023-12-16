@@ -218,8 +218,7 @@ on fs
     
 on late-fs
     mount_all /vendor/etc/fstab.hi3650 --late
-    
-    start audio_patch
+
     start schedtune
     
 on post-fs
@@ -854,12 +853,6 @@ on property:ro.config.hw_vowifi=true
 
 on property:sys.userdata_is_ready=1
     start thermal-daemon
-    
-service audio_patch /vendor/bin/audio_patch
-    class main
-    user root
-    group system
-    oneshot
     
 service schedtune /vendor/bin/schedtune
     class main

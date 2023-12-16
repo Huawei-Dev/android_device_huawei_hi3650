@@ -20,7 +20,6 @@
 /vendor/bin/hw/mac_nvme													u:object_r:hal_hwmac_default_exec:s0
 /vendor/bin/hw/mploader													u:object_r:hal_hwmac_default_exec:s0
 
-/vendor/bin/audio_patch														u:object_r:hal_audio_default_exec:s0
 /vendor/bin/atcmdserver														u:object_r:hal_atcmdserver_default_exec:s0
 /vendor/bin/CameraDaemon													u:object_r:hal_hwcamcfgsvr_default_exec:s0
 /vendor/bin/diagserver														u:object_r:hal_diagserver_default_exec:s0
