@@ -212,8 +212,6 @@ on fs
     mkdir /splash2/log 0775 system log
     symlink /splash2/fac_log /data/log/fac_log
 
-    mount none /system/etc/gps.conf /system/etc/gps_debug.conf bind
-
     restorecon /sys/class/graphics/fb0/lcd_cabc_mode
     
 on late-fs
