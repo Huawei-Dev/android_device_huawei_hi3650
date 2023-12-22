@@ -212,7 +212,7 @@ on fs
     mkdir /splash2/log 0775 system log
     symlink /splash2/fac_log /data/log/fac_log
 
-    restorecon /sys/class/graphics/fb0/lcd_cabc_mode
+    restorecon /sys/class/graphics/fb0/lcd_color_temperature
     
 on late-fs
     mount_all /vendor/etc/fstab.hi3650 --late
