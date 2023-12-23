@@ -27,8 +27,6 @@ on init
 
     write /sys/module/hisi_nve/parameters/nve /dev/block/bootdevice/by-name/nvme
     wait /dev/nve0
-    chmod 0640 /dev/nve0
-    chown root system /dev/nve0
 
     chown system system /sys/class/devfreq/ddrfreq/max_freq
     chmod 664 /sys/class/devfreq/ddrfreq/max_freq
