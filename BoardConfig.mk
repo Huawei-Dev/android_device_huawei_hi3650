@@ -143,8 +143,8 @@ BOARD_SEPOLICY_DIRS += device/huawei/beethoven/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Vendor Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hi3650
-TARGET_RECOVERY_DEVICE_MODULES := libinit_hi3650
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hisi
+TARGET_RECOVERY_DEVICE_MODULES := libinit_hisi
 
 # Vendor Security patch level
 VENDOR_SECURITY_PATCH := 2023-12-05

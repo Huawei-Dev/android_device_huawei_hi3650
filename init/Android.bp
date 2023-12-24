@@ -15,9 +15,9 @@
 //
 
 cc_library_static {
-    name: "libinit_hi3650",
+    name: "libinit_hisi",
     recovery_available: true,
-    srcs: ["init_btv.cpp"],
+    srcs: ["beethoven.cpp"],
     include_dirs: [
         "system/core/init"
     ],
