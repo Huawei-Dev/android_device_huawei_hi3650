@@ -28,38 +28,23 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void property_override_2x(char const product_prop[], char const system_prop[], char const value[])
+void property_override_4x(char const prop0[], char const prop1[], char const prop2[], char const prop3[], char const value[])
 {
-    property_override(product_prop, value);
-    property_override(system_prop, value);
+    property_override(prop0, value);
+    property_override(prop1, value);
+    property_override(prop2, value);
+    property_override(prop3, value);
 }
 
-void property_override_3x(char const product_prop[], char const system_prop[], char const vendor_prop[], char const value[])
+void property_override_9x(char const prop0[], char const prop1[], char const prop2[], char const prop3[], char const prop4[], char const prop5[], char const prop6[], char const prop7[], char const prop8[], char const value[])
 {
-    property_override(product_prop, value);
-    property_override(system_prop, value);
-    property_override(vendor_prop, value);
-}
-
-void property_override_4x(char const product_prop[], char const system_prop[], char const vendor_prop[], char const bootimage[], char const value[])
-{
-    property_override(product_prop, value);
-    property_override(system_prop, value);
-    property_override(vendor_prop, value);
-    property_override(bootimage, value);
+    property_override_4x(prop0, prop1, prop2, prop3, value);
+    property_override_4x(prop4, prop5, prop6, prop7, value);
+    property_override(prop8, value);
 }
 
 static void set_model(const char *model) {
-    property_override_3x("ro.hw.oemName", "ro.lineage.device", "ro.build.product", model);
-    property_override_3x("ro.product.name", "ro.product.odm.name", "ro.product.product.name", model);
-    property_override_3x("ro.product.system.name", "ro.product.system_ext.name", "ro.product.vendor.name", model);
-    property_override_2x("ro.product.odm_dlkm.name", "ro.product.vendor_dlkm.name", model);
-    property_override_3x("ro.product.device", "ro.product.odm.device", "ro.product.product.device", model);
-    property_override_3x("ro.product.system.device", "ro.product.system_ext.device", "ro.product.vendor.device", model);
-    property_override_2x("ro.product.odm_dlkm.device", "ro.product.vendor_dlkm.device", model);
-    property_override_3x("ro.product.model", "ro.product.odm.model", "ro.product.product.model", model);
-    property_override_3x("ro.product.system.model", "ro.product.system_ext.model", "ro.product.vendor.model", model);
-    property_override_2x("ro.product.odm_dlkm.model", "ro.product.vendor_dlkm.model", model);
+    property_override_4x("ro.build.product", "ro.product.device", "ro.product.model", "ro.product.name", model);
 }
 
 void vendor_load_properties()
@@ -77,49 +62,30 @@ void vendor_load_properties()
     if (buf.find("BTV_DL09") != std::string::npos) {
 	set_model("BTV-DL09");
 	property_override("ro.build.description", "BTV-DL09-user 7.0 HUAWEIBEETHOVEN-DL09 C100B311 release-keys");
-	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
-	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
-	property_override_2x("ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");
-	
+	property_override_9x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys");	
     }
     else if (buf.find("BTV_L0J") != std::string::npos) {
 	set_model("BTV-L0J");
 	property_override("ro.build.description", "BTV-L0J-user 7.0 HUAWEIBTV-L0J C137B365 release-keys");
-	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
-	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
-	property_override_2x("ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
+	property_override_9x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "dtab/BEETHOVEN/d-01J:7.0/HUAWEIBTV-L0J/19021102:user/release-keys");
     }
     else if (buf.find("BTV_W09") != std::string::npos) {
 	set_model("BTV-W09");
 	property_override("persist.radio.noril", "1");
 	property_override("ro.carrier", "wifi-only");
 	property_override("ro.build.description", "BTV-W09-user 7.0 HUAWEIBEETHOVEN-W09 C100B308 release-keys");
-	property_override_4x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-W09/C100B308:user/release-keys");
-	property_override_3x("ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-W09/C100B308:user/release-keys");
-	property_override_2x("ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-W09/C100B308:user/release-keys");
+	property_override_9x("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "ro.odm.build.fingerprint", "ro.bootimage.build.fingerprint", "ro.build.fingerprint", "ro.product.build.fingerprint", "ro.system_ext.build.fingerprint",  "ro.odm_dlkm.build.fingerprint", "ro.vendor_dlkm.build.fingerprint",  "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-W09/C100B308:user/release-keys");
     }
     else {
-	property_override("ro.product.model", "UNKNOWN");
+		set_model("UNKNOWN");
     }
     
-    fin.open("/proc/connectivity/chiptype");
-    while (std::getline(fin, buf, ' ')) {
-    	if (buf.find("hisi") != std::string::npos) {
-        	property_override("ro.connectivity.chiptype", "hisi");
-        	property_override("is_hisi_connectivity_chip", "1");
-    		property_override("ro.boot.odm.conn.chiptype", "hisi");
-    		}
-            break;
-       }
-    fin.close();
+    property_override("ro.connectivity.chiptype", "hisi");
+    property_override("is_hisi_connectivity_chip", "1");
+    property_override("ro.boot.odm.conn.chiptype", "hisi");
+    property_override("ro.connectivity.sub_chiptype", "hi1102");
+    property_override("ro.boot.odm.conn.schiptype", "hi1102");
     
-    fin.open("/sys/firmware/devicetree/base/hi1102/name");
-    while (std::getline(fin, buf, ' ')) {
-        if (buf.find("hi1102") != std::string::npos) {
-        	property_override("ro.connectivity.sub_chiptype", "hi1102");
-        	property_override("ro.boot.odm.conn.schiptype", "hi1102");
-        	}
-            break;
-       }
-    fin.close();
+    property_override("wifi.interface", "wlan0");
+    property_override("wifi.direct.interface", "p2p-dev-wlan0");
 }
