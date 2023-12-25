@@ -201,10 +201,11 @@ on init
     write /proc/sys/vm/swappiness 100
     swapon_all /vendor/etc/fstab.hi3650
     
-on fs
+on early-fs
     wait /dev/block/bootdevice/by-name/oeminfo
     start oeminfo_nvm
-    
+
+on fs    
     wait /dev/block/bootdevice/by-name/system
     wait /dev/block/bootdevice/by-name/userdata
     mount_all /vendor/etc/fstab.hi3650 --early
@@ -815,7 +816,6 @@ service atcmdserver /vendor/bin/atcmdserver
 
 service oeminfo_nvm /vendor/bin/oeminfo_nvm_server
     class core
-    group system readproc root
     critical
     ioprio rt 4
        
