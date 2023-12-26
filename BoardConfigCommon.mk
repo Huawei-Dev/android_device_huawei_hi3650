@@ -142,6 +142,7 @@ BOARD_ROOT_EXTRA_SYMLINKS += \
 	/odm/hw_odm:/hw_odm
 	
 # Props
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Recovery
