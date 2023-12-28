@@ -18,13 +18,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.charger.rc",
-    src: "etc/init.charger.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "init.hi3650.connectivity.rc",
     src: "etc/init.hi3650.connectivity.rc",
     sub_dir: "init/hw",
