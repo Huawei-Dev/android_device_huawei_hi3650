@@ -136,7 +136,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_PROVIDES_LIBRIL := true
 
 # Sepolicy
-BOARD_SEPOLICY_DIRS += device/huawei/beethoven/sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Vendor Init
