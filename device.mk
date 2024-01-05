@@ -67,6 +67,10 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64
     
 PRODUCT_PACKAGES += \
+    android.hardware.camera.device@3.2.vendor \
+    android.hardware.camera.provider@2.4.vendor
+    
+PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     libbinder_shim \
     libui_shim.vendor \
