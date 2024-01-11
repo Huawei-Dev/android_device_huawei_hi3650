@@ -204,7 +204,7 @@ on init
     
 on early-fs
     wait /dev/block/bootdevice/by-name/oeminfo
-    start oeminfo_nvm
+    start vendor.oeminfo_nvm
 
 on fs    
     wait /dev/block/bootdevice/by-name/system
@@ -219,7 +219,7 @@ on fs
 on late-fs
     mount_all /vendor/etc/fstab.hi3650 --late
 
-    start schedtune
+    start vendor.schedtune
     
 on post-fs
     chown system system /proc/uid_cputime/show_uid_stat
@@ -240,7 +240,7 @@ on post-fs-data
     restorecon /data/sec_storage_data_users
     mkdir /data/vendor/log/sec_storage_data 0775 system system
     mkdir /data/vendor/log/sec_storage_data/log 0755 system system
-    start teecd
+    start vendor.teecd
     
     mkdir /splash2/sim 0770 root system
     mkdir /splash2/sim/offlinelogs 0770 root system
@@ -840,73 +840,73 @@ on charger
     class_start charger
     
 # Start service
-service charger /vendor/bin/hw_charger -p
+service vendor.charger /vendor/bin/hw_charger -p
     class charger
     user root
     group root system
     capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
-service atcmdserver /vendor/bin/atcmdserver
+service vendor.atcmdserver /vendor/bin/atcmdserver
     class main
     group root system nfc graphics audio camera
     disabled
 
-service oeminfo_nvm /vendor/bin/oeminfo_nvm_server
+service vendor.oeminfo_nvm /vendor/bin/oeminfo_nvm_server
     class core
     critical
     ioprio rt 4
        
-service diagserver /vendor/bin/diagserver
+service vendor.diagserver /vendor/bin/diagserver
     class main
     user root
     disabled
     
-service teecd /vendor/bin/teecd
+service vendor.teecd /vendor/bin/teecd
     class core
     user root
     group root system readproc
     disabled
     seclabel u:r:tee:s0
     
-service iked /vendor/bin/iked
+service vendor.iked /vendor/bin/iked
     class late_start
     user root
     disabled
     group system
     
-service thermal-daemon /vendor/bin/thermal-daemon
+service vendor.thermal-daemon /vendor/bin/thermal-daemon
     class main
     user system
     group system
     
-service hivwserver /vendor/bin/hivwserver
+service vendor.hivwserver /vendor/bin/hivwserver
     class vowifi
     user system
     group audio inet net_bt net_bt_admin net_bw_acct system
 	
 on property:ro.config.hw_vowifi=true
     class_start vowifi
-    start iked
+    start vendor.iked
 
 on property:sys.userdata_is_ready=1
-    start thermal-daemon
+    start vendor.thermal-daemon
     
-service schedtune /vendor/bin/schedtune
+service vendor.schedtune /vendor/bin/schedtune
     class main
     user root
     group system
     oneshot
     
-service irqbalance /vendor/bin/irqbalance
+service vendor.irqbalance /vendor/bin/irqbalance
     user root
     group system
     disabled
     oneshot
     writepid /dev/cpuset/background/tasks
     
-on property:persist.irqbalance.enable=true
-    start irqbalance
+on property:persist.vendor.irqbalance.enable=true
+    start vendor.irqbalance
     
 on property:ro.config.enable_rcc=true
     write /sys/kernel/rcc/event PASSIVE_MODE
