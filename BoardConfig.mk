@@ -137,6 +137,7 @@ BOARD_PROVIDES_LIBRIL := true
 
 # Sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # Vendor Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_hisi
