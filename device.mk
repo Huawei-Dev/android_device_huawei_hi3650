@@ -36,10 +36,15 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service.hisi \
     android.hardware.audio@4.0-impl \
     android.hardware.audio.effect@4.0-impl \
-    android.hardware.bluetooth.audio@2.1-impl
+    android.hardware.bluetooth.audio@2.1-impl \
+    android.hardware.soundtrigger@2.1-impl
     
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0.vendor
+    
+PRODUCT_PACKAGES += \
+    libtinycompress \
+    libtinyxml
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
