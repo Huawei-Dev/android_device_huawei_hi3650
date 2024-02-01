@@ -175,7 +175,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libxcollie \
     libhwlog \
-    libchrlog
+    libchrlog \
+    libhilog
     
 # Overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
