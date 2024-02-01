@@ -173,7 +173,9 @@ PRODUCT_PACKAGES += \
     
 # Misc
 PRODUCT_PACKAGES += \
-    libxcollie
+    libxcollie \
+    libhwlog \
+    libchrlog
     
 # Overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
