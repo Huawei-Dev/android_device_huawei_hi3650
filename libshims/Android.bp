@@ -5,13 +5,6 @@
 //
 
 cc_library_shared {
-    name: "liblog_vendor",
-    srcs: ["libshim_log.cpp"],
-    shared_libs: ["liblog"],
-    vendor: true,
-}
-
-cc_library_shared {
     name: "libshim_ui",
     srcs: ["libshim_ui.cpp"],
     shared_libs: [
@@ -43,47 +36,11 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "libxcollie",
-    proprietary: true,
-    defaults: ["hidl_defaults"],
-    srcs: [
-        "xcollie.c",
-    ],
-    shared_libs: [
-        "liblog",
-    ],
-}
-
-cc_library_shared {
     name: "libhwlog",
     proprietary: true,
     defaults: ["hidl_defaults"],
     srcs: [
         "hwlog.c",
-    ],
-    shared_libs: [
-        "liblog",
-    ],
-}
-
-cc_library_shared {
-    name: "libchrlog",
-    proprietary: true,
-    defaults: ["hidl_defaults"],
-    srcs: [
-        "chrlog.c",
-    ],
-    shared_libs: [
-        "liblog",
-    ],
-}
-
-cc_library_shared {
-    name: "libhilog",
-    proprietary: true,
-    defaults: ["hidl_defaults"],
-    srcs: [
-        "hilog.c",
     ],
     shared_libs: [
         "liblog",
