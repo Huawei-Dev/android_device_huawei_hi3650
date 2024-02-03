@@ -1,10 +1,10 @@
+on early-init
+    start vendor.mploader
+
 on fs
     mount_all /vendor/etc/fstab.modem
     chown radio radio sys/devices/platform/balong_power/state
     write /sys/devices/platform/his_modem/modem_sysboot_start 1
-    
-    wait /vendor/phone.prop
-    start vendor.mploader
 
 service ril-daemon /vendor/bin/hw/rild
     disabled
