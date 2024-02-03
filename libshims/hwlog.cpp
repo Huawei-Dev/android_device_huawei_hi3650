@@ -1,7 +1,4 @@
-#define LOG_TAG "libhwlog"
-
 #include <log/log.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -34,6 +31,7 @@ typedef enum chr_LogTag {
     CHR_LOG_TAG_NFC,
 } logTag;
 
+extern "C" {
 // This stub is used because the original android_log_shouldPrintLine and the
 // AndroidLogFormat struct it relied on have both been removed from the codebase.
 int android_log_shouldPrintLine(void* p_format __unused, const char* tag __unused,
@@ -42,7 +40,7 @@ int android_log_shouldPrintLine(void* p_format __unused, const char* tag __unuse
 }
 
 size_t android_log_printLogLine(void* p_format __unused, FILE* fp,
-                                           struct AndroidLogEntry* entry) {
+                                           AndroidLogEntry* entry) {
     if (fwrite(entry->message, 1, entry->messageLen, fp) != entry->messageLen) {
         return -1;
     }
@@ -79,7 +77,7 @@ int __android_logPower_print(int bufID, int priority, char* tag, char* fmt, ...)
 int __android_log_print(int prio, const char *tag, const char *fmt, ...)
 {
     va_list ap;
-    char buf[512];    
+    char buf[512];
     va_start(ap, fmt);
     vsnprintf(buf, sizeof(buf), fmt, ap);
     va_end(ap);
@@ -139,3 +137,4 @@ int __chr_printLog(logPriority prio, logTag tag, const char* fmt, ...) {
     ALOGV("%s: prio: %d, tag: %u, fmt: %s", __func__, prio, tag, fmt);
     return 0;
 }
+} // end of extern "C"
