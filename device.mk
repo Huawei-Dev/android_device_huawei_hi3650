@@ -243,11 +243,9 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.hisi-libperfmgr
 
 PRODUCT_COPY_FILES += \
-    system/core/libprocessgroup/profiles/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
-    system/core/libprocessgroup/profiles/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
-    
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    $(LOCAL_PATH)/prebuilts/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    $(LOCAL_PATH)/prebuilts/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json \
+    $(LOCAL_PATH)/prebuilts/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
     
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/schedtune:$(TARGET_COPY_OUT_VENDOR)/bin/schedtune
