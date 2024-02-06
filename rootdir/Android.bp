@@ -18,29 +18,8 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.hi3650.connectivity.rc",
-    src: "etc/init.hi3650.connectivity.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.hi3650.hisi.rc",
-    src: "etc/init.hi3650.hisi.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.hi3650.lte.rc",
-    src: "etc/init.hi3650.lte.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.hi3650.power.rc",
-    src: "etc/init.hi3650.power.rc",
+    name: "init.connectivity.hi3650.rc",
+    src: "etc/init.connectivity.hi3650.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
@@ -53,8 +32,29 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.hi3650.usb.rc",
-    src: "etc/init.hi3650.usb.rc",
+    name: "init.hisi.hi3650.rc",
+    src: "etc/init.hisi.hi3650.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.lte.hi3650.rc",
+    src: "etc/init.lte.hi3650.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.power.hi3650.rc",
+    src: "etc/init.power.hi3650.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.usb.hi3650.rc",
+    src: "etc/init.usb.hi3650.rc",
     sub_dir: "init/hw",
     vendor: true,
 }

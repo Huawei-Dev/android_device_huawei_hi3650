@@ -1,8 +1,8 @@
 on fs && property:ro.product.device=BTV_L0J
-    import /vendor/etc/init/hw/init.hi3650.lte.rc
+    import /vendor/etc/init/hw/init.lte.hi3650.rc
     
 on fs && property:ro.product.device=BTV-DL09
-    import /vendor/etc/init/hw/init.hi3650.lte.rc
+    import /vendor/etc/init/hw/init.lte.hi3650.rc
 
 on property:persist.sys.huawei.debug.on=0
     chown system system /sys/class/sensors/sensorhub_dump

@@ -1,8 +1,7 @@
-import /vendor/etc/init/hw/init.hi3650.connectivity.rc
-import /vendor/etc/init/hw/init.hi3650.hisi.rc
-import /vendor/etc/init/hw/init.hi3650.lte.rc
-import /vendor/etc/init/hw/init.hi3650.power.rc
-import /vendor/etc/init/hw/init.hi3650.usb.rc
+import /vendor/etc/init/hw/init.connectivity.hi3650.rc
+import /vendor/etc/init/hw/init.hisi.hi3650.rc
+import /vendor/etc/init/hw/init.power.hi3650.rc
+import /vendor/etc/init/hw/init.usb.hi3650.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug

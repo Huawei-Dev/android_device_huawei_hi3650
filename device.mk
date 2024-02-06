@@ -247,12 +247,12 @@ PRODUCT_PACKAGES += \
     fstab.hi3650 \
     fstab.hi3650.ramdisk \
     fstab.modem \
-    init.hi3650.connectivity.rc \
-    init.hi3650.hisi.rc \
-    init.hi3650.lte.rc \
-    init.hi3650.power.rc \
+    init.connectivity.hi3650.rc \
     init.hi3650.rc \
-    init.hi3650.usb.rc \
+    init.hisi.hi3650.rc \
+    init.lte.hi3650.rc \
+    init.power.hi3650.rc \
+    init.usb.hi3650.rc \
     ueventd.hi3650.rc
 
 PRODUCT_COPY_FILES += \
