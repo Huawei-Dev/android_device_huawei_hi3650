@@ -1,23 +1,9 @@
 on early-init
-    write /sys/block/mmcblk0/queue/scheduler noop
+    write /sys/block/mmcblk0/queue/scheduler cfq
     write /sys/block/mmcblk0/bdi/read_ahead_kb 2048
     
 on init
-    chown system system /sys/class/hisi_thermal/spm/spm_mode
-    chmod 644 /sys/class/hisi_thermal/spm/spm_mode
-
-    chown system system /sys/class/hisi_thermal/spm/vr_mode
-    chmod 644 /sys/class/hisi_thermal/spm/vr_mode
-
-    chown system system /sys/class/hisi_thermal/spm/spm_freq
-    chmod 644 /sys/class/hisi_thermal/spm/spm_freq
-
-    chown system system /sys/class/hisi_thermal/spm/vr_freq
-    chmod 644 /sys/class/hisi_thermal/spm/vr_freq
-
-    chown system system /sys/class/hisi_thermal/spm/min_freq
-    chmod 644 /sys/class/hisi_thermal/spm/min_freq
-
+    # CPU
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chmod 664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
@@ -26,57 +12,9 @@ on init
     chmod 664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
     chown system system /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
     chmod 664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-    chown system system /dev/acpuddr_link_governor_level
-    chmod 664 /dev/acpuddr_link_governor_level
-    chown system system /dev/cpu_dma_latency
-    chmod 660 /dev/cpu_dma_latency
-
-    chown system system /sys/devices/virtual/thermal/thermal_zone1/boost
-    chmod 660 /sys/devices/virtual/thermal/thermal_zone1/boost
-    chown system system /sys/devices/virtual/thermal/thermal_zone1/boost_timeout
-    chmod 660 /sys/devices/virtual/thermal/thermal_zone1/boost_timeout
-
-    chown system system /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost
-    chmod 664 /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost
-    chown system system /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost_freq
-    chmod 664 /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost_freq
-
-    chown system system /sys/class/thermal/thermal_zone0/mode
-    chmod 0664 /sys/class/thermal/thermal_zone0/mode
-    chown system system /sys/class/thermal/thermal_zone0/type
-    chmod 0440 /sys/class/thermal/thermal_zone0/type
-    chown system system /sys/class/thermal/thermal_zone0/trip_point_0_temp
-    chmod 0664 /sys/class/thermal/thermal_zone0/trip_point_0_temp
-    chown system system /sys/class/thermal/thermal_zone0/trip_point_1_temp
-    chmod 0664 /sys/class/thermal/thermal_zone0/trip_point_1_temp
-    chown system system /sys/class/thermal/thermal_zone0/sustainable_power
-    chmod 0664 /sys/class/thermal/thermal_zone0/sustainable_power
-
-    # DDR
-    write /sys/class/devfreq/ddrfreq/min_freq 120000000
-    write /sys/class/devfreq/ddrfreq/max_freq 1333000000
-    write /sys/class/devfreq/ddrfreq_latency/min_freq 120000000
-    write /sys/class/devfreq/ddrfreq_latency/max_freq 1333000000
-    write /sys/class/devfreq/ddrfreq_up_threshold/min_freq 120000000
-    write /sys/class/devfreq/ddrfreq_up_threshold/max_freq 1333000000
     
-    # GPU
-    write /sys/class/devfreq/gpufreq/min_freq 120000000
-    write /sys/class/devfreq/gpufreq/max_freq 900000000
-    
-    # CPU
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 480000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1805000
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 480000
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 2304000    
-    
-on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    restorecon_recursive /sys/devices/system/cpu/cpu0/cpufreq/interactive
     chown system  system /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse
-    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
-    
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse    
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/boost
@@ -137,40 +75,233 @@ on property:sys.boot_completed=1
     chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
     chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load   
 
+    # DDR
+    chown system system /sys/class/devfreq/ddrfreq/max_freq
+    chmod 664 /sys/class/devfreq/ddrfreq/max_freq
+    chown system system /sys/class/devfreq/ddrfreq/min_freq
+    chmod 664 /sys/class/devfreq/ddrfreq/min_freq
+    chown system system /sys/class/devfreq/ddrfreq/ddr_bandwidth
+    chmod 664 /sys/class/devfreq/ddrfreq/ddr_bandwidth
+    chown system system /sys/class/devfreq/ddrfreq/cur_freq
+    chmod 664 /sys/class/devfreq/ddrfreq/cur_freq
+    chown system system /sys/class/devfreq/ddrfreq/available_frequencies
+    chmod 664 /sys/class/devfreq/ddrfreq/available_frequencies
+    chown system system /sys/class/devfreq/ddrfreq/polling_interval
+    chmod 664 /sys/class/devfreq/ddrfreq/polling_interval
+    chown system system /sys/kernel/set_hmp_thresholds/policy
+    chmod 0664 /sys/kernel/set_hmp_thresholds/policy
+    
+    chown system system /sys/class/devfreq/ddrfreq_latency/available_frequencies
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/available_frequencies
+    chown system system /sys/class/devfreq/ddrfreq_latency/available_governors
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/available_governors
+    chown system system /sys/class/devfreq/ddrfreq_latency/cur_freq
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/cur_freq
+    chown system system /sys/class/devfreq/ddrfreq_latency/ddr_bandwidth
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/ddr_bandwidth
+    chown system system /sys/class/devfreq/ddrfreq_latency/ddr_chintlv
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/ddr_chintlv
+    chown system system /sys/class/devfreq/ddrfreq_latency/governor
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/governor
+    chown system system /sys/class/devfreq/ddrfreq_latency/max_freq
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/max_freq
+    chown system system /sys/class/devfreq/ddrfreq_latency/min_freq
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/min_freq
+    chown system system /sys/class/devfreq/ddrfreq_latency/polling_interval
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/polling_interval
+    chown system system /sys/class/devfreq/ddrfreq_latency/target_freq
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/target_freq
+    chown system system /sys/class/devfreq/ddrfreq_latency/trans_stat
+    chmod 0664 /sys/class/devfreq/ddrfreq_latency/trans_stat
+
+    chown system system /sys/class/devfreq/ddrfreq_up_threshold/max_freq
+    chmod 664 /sys/class/devfreq/ddrfreq_up_threshold/max_freq
+    chown system system /sys/class/devfreq/ddrfreq_up_threshold/min_freq
+    chmod 664 /sys/class/devfreq/ddrfreq_up_threshold/min_freq
+    chown system system /sys/class/devfreq/ddrfreq_up_threshold/ddr_bandwidth
+    chmod 664 /sys/class/devfreq/ddrfreq_up_threshold/ddr_bandwidth
+    chown system system /sys/class/devfreq/ddrfreq_up_threshold/cur_freq
+    chmod 664 /sys/class/devfreq/ddrfreq_up_threshold/cur_freq
+    chown system system /sys/class/devfreq/ddrfreq_up_threshold/available_frequencies
+    chmod 664 /sys/class/devfreq/ddrfreq_up_threshold/available_frequencies
+    chown system system /sys/class/devfreq/ddrfreq_up_threshold/polling_interval
+    chmod 664 /sys/class/devfreq/ddrfreq_up_threshold/polling_interval
+    
+    # GPU
+    chown system system /sys/class/devfreq/gpufreq/max_freq
+    chmod 664 /sys/class/devfreq/gpufreq/max_freq
+    chown system system /sys/class/devfreq/gpufreq/min_freq
+    chmod 664 /sys/class/devfreq/gpufreq/min_freq
+    chown system system /sys/class/devfreq/gpufreq/cur_freq
+    chmod 664 /sys/class/devfreq/gpufreq/cur_freq
+    chown system system /sys/class/devfreq/gpufreq/available_frequencies
+    chmod 664 /sys/class/devfreq/gpufreq/available_frequencies
+    chown system system /sys/class/devfreq/gpufreq/mali_ondemand/animation_boost
+    chmod 664 /sys/class/devfreq/gpufreq/mali_ondemand/animation_boost
+    chown system system /sys/class/devfreq/gpufreq/mali_ondemand/animation_boost_freq
+    chmod 664 /sys/class/devfreq/gpufreq/mali_ondemand/animation_boost_freq
+    chown system system /sys/class/devfreq/gpufreq/polling_interval
+    chmod 664 /sys/class/devfreq/gpufreq/polling_interval
+    chown system system /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost
+    chmod 664 /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost
+    chown system system /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost_freq
+    chmod 664 /sys/class/devfreq/gpufreq/mali_ondemand/cl_boost_freq
+    
+    # Thermal
+    chown system system /sys/devices/virtual/thermal/thermal_zone0/boost
+    chmod 664 /sys/devices/virtual/thermal/thermal_zone0/boost
+    chown system system /sys/devices/virtual/thermal/thermal_zone0/boost_timeout
+    chmod 664 /sys/devices/virtual/thermal/thermal_zone0/boost_timeout
+    chown system system /sys/devices/virtual/thermal/thermal_zone0/mode
+    chmod 0664 /sys/devices/virtual/thermal/thermal_zone0/mode
+    chown system system /sys/devices/virtual/thermal/thermal_zone0/sustainable_power
+    chmod 0664 /sys/devices/virtual/thermal/thermal_zone0/sustainable_power
+    chown system system /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp
+    chmod 0664 /sys/devices/virtual/thermal/thermal_zone0/trip_point_0_temp
+    chown system system /sys/devices/virtual/thermal/thermal_zone0/trip_point_1_temp
+    chmod 0664 /sys/devices/virtual/thermal/thermal_zone0/trip_point_1_temp
+    chown system system /sys/devices/virtual/thermal/thermal_zone0/type
+    chmod 0440 /sys/devices/virtual/thermal/thermal_zone0/type
+    
+    chown system system /sys/devices/virtual/thermal/thermal_zone1/boost
+    chmod 660 /sys/devices/virtual/thermal/thermal_zone1/boost
+    chown system system /sys/devices/virtual/thermal/thermal_zone1/boost_timeout
+    chmod 660 /sys/devices/virtual/thermal/thermal_zone1/boost_timeout
+    
+    # PM QoS
+    chown system system /dev/cpu_dma_latency
+    chmod 0660 /dev/cpu_dma_latency
+    
+    # CPU control
+    mkdir /dev/cpuctl
+    mount cgroup none /dev/cpuctl cpu
+    chown system system /dev/cpuctl
+    chown system system /dev/cpuctl/tasks
+    chmod 0666 /dev/cpuctl/tasks
+    write /dev/cpuctl/cpu.shares 1024
+    write /dev/cpuctl/cpu.rt_runtime_us 800000
+    write /dev/cpuctl/cpu.rt_period_us 1000000
+
+    mkdir /dev/cpuctl/limit
+    chown system system /dev/cpuctl/limit/tasks
+    chmod 0644 /dev/cpuctl/limit/tasks
+    write /dev/cpuctl/limit/cpu.shares 1024
+    write /dev/cpuctl/limit/cpu.rt_runtime_us 800000
+    write /dev/cpuctl/limit/cpu.rt_period_us 1000000
+
+    # CPU sets
+    mkdir /dev/cpuset
+    mount cgroup none /dev/cpuset cpuset,cpuset_noprefix
+    mkdir /dev/cpuset/foreground
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/mems 0
+    mkdir /dev/cpuset/foreground/boost
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/foreground/boost/mems 0
+
+    mkdir /dev/cpuset/background
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/background/mems 0
+    mkdir /dev/cpuset/system-background
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/system-background/mems 0
+
+    mkdir /dev/cpuset/top-app
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/top-app/mems 0
+
+    chown system system /dev/cpuset
+    chown system system /dev/cpuset/foreground
+    chown system system /dev/cpuset/foreground/boost
+    chown system system /dev/cpuset/background
+    chown system system /dev/cpuset/system-background
+    chown system system /dev/cpuset/top-app
+    chown system system /dev/cpuset/tasks
+    chown system system /dev/cpuset/foreground/tasks
+    chown system system /dev/cpuset/foreground/boost/tasks
+    chown system system /dev/cpuset/background/tasks
+    chown system system /dev/cpuset/system-background/tasks
+    chown system system /dev/cpuset/top-app/tasks
+    chmod 0775 /dev/cpuset/system-background
+    chmod 0664 /dev/cpuset/foreground/tasks
+    chmod 0664 /dev/cpuset/foreground/boost/tasks
+    chmod 0664 /dev/cpuset/background/tasks
+    chmod 0664 /dev/cpuset/system-background/tasks
+    chmod 0664 /dev/cpuset/top-app/tasks
+    chmod 0664 /dev/cpuset/tasks
+    
+    # MM
+    mkdir /dev/workingset
+    mount cgroup none /dev/workingset nodev noexec nosuid workingset
+    mkdir /dev/workingset/monitor0
+    mkdir /dev/workingset/monitor1
+    chmod 0600 /dev/workingset/tasks
+    chmod 0600 /dev/workingset/monitor0/tasks
+    chmod 0600 /dev/workingset/monitor1/tasks
+    chmod 0600 /dev/workingset/cgroup.procs
+    chmod 0600 /dev/workingset/monitor0/cgroup.procs
+    chmod 0600 /dev/workingset/monitor1/cgroup.procs
+    chmod 0600 /dev/workingset/monitor0/workingset.state
+    chmod 0600 /dev/workingset/monitor1/workingset.state
+    chmod 0600 /dev/workingset/monitor0/workingset.data
+    chmod 0600 /dev/workingset/monitor1/workingset.data
+
+    # I/O
+    mkdir /dev/blkio
+    mount cgroup none /dev/blkio blkio
+
+    mkdir /dev/blkio/foreground
+    mkdir /dev/blkio/background
+    mkdir /dev/blkio/system-background
+    mkdir /dev/blkio/key-background
+    mkdir /dev/blkio/top-app
+
+    chown system system /dev/blkio
+    chown system system /dev/blkio/foreground
+    chown system system /dev/blkio/background
+    chown system system /dev/blkio/system-background
+    chown system system /dev/blkio/key-background
+    chown system system /dev/blkio/top-app
+
+    chown system system /dev/blkio/tasks
+    chown system system /dev/blkio/foreground/tasks
+    chown system system /dev/blkio/background/tasks
+    chown system system /dev/blkio/system-background/tasks
+    chown system system /dev/blkio/key-background/tasks
+    chown system system /dev/blkio/top-app/tasks
+
+    chmod 0644 /dev/blkio/tasks
+    chmod 0644 /dev/blkio/foreground/tasks
+    chmod 0644 /dev/blkio/background/tasks
+    chmod 0644 /dev/blkio/system-background/tasks
+    chmod 0644 /dev/blkio/key-background/tasks
+    chmod 0644 /dev/blkio/top-app/tasks
+    
+on property:sys.boot_completed=1
+    # CPU
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 480000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1805000
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 480000
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 2304000
+    
+    # GPU
+    write /sys/class/devfreq/gpufreq/min_freq 120000000
+    write /sys/class/devfreq/gpufreq/max_freq 900000000
+    
+    # DDR
+    write /sys/class/devfreq/ddrfreq/min_freq 120000000
+    write /sys/class/devfreq/ddrfreq/max_freq 1333000000
+    write /sys/class/devfreq/ddrfreq_latency/min_freq 120000000
+    write /sys/class/devfreq/ddrfreq_latency/max_freq 1333000000
+    write /sys/class/devfreq/ddrfreq_up_threshold/min_freq 120000000
+    write /sys/class/devfreq/ddrfreq_up_threshold/max_freq 1333000000
+    
     # Set lowmemorykiller tuning parameters
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
     write /sys/module/lowmemorykiller/parameters/adj "0,100,200,300,900,906"
     write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,55296,80640"
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 80640
-    
-on property:sys.boot_completed=1
-    setprop sys.io.scheduler bfq
-    
-    write /sys/kernel/eas/boost 0
-    write /sys/kernel/eas/boot_boost 0
-    write /sys/kernel/eas/capacity_margin 1280
-    
-    rm /data/hisi_logs/reboot_times.log
 
-on property:sys.boot_completed=1    
-    # GPU
-    write /sys/class/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 60
-    write /sys/class/devfreq/gpufreq/gpu_scene_aware/scene_para 0:85:360000000:100:20,80:360000000:90:650000000:80
-    # CPU
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 95
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1306000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 70:807000:80:1018000:90:1306000:95
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 79000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down 1
-
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1210000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads 80:807000:81:1210000:85:1517000:95
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 39000:1210000:89000:1517000:19000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 79000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/fast_ramp_down 1
-    
     write /proc/sys/kernel/sched_util_clamp_min 128
     write /proc/sys/kernel/sched_util_clamp_min_rt_default 96
 
@@ -195,7 +326,3 @@ on property:sys.boot_completed=1
     write /dev/cpuset/system-background/uclamp.latency_sensitive 0
 
     rm /data/hisi_logs/reboot_times.log
-    
-# set cpu scheduler when device shutdown
-on property:sys.shutdown.requested=*
-    write sys/kernel/eas/boot_boost 1
