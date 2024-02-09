@@ -19,6 +19,7 @@
 
 char const *heapminfree;
 char const *heapmaxfree;
+char const *heaptargetutilization;
 
 void property_override(char const prop[], char const value[])
 {
@@ -57,9 +58,11 @@ void check_device()
     sysinfo(&sys);
 
     if (sys.totalram > 3072ull * 1024 * 1024) {
+        heaptargetutilization = "0.6";
         heapminfree = "4m";
         heapmaxfree = "16m";
     } else {
+        heaptargetutilization = "0.75";
         heapminfree = "512k";
         heapmaxfree = "8m";
     }
@@ -111,7 +114,7 @@ void vendor_load_properties()
     property_override("dalvik.vm.heapstartsize", "8m");
     property_override("dalvik.vm.heapgrowthlimit", "256m");
     property_override("dalvik.vm.heapsize", "512m");
-    property_override("dalvik.vm.heaptargetutilization", "0.6");
+    property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
 }
