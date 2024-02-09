@@ -32,14 +32,6 @@ persist.sys.fast_h_duration=2000
 persist.sys.fast_h_max=50
 persist.sys.max_rdh_delay=0
 
-# Dalvik
-dalvik.vm.heapstartsize=16m
-dalvik.vm.heapgrowthlimit=384m
-dalvik.vm.heapsize=512m
-dalvik.vm.heaptargetutilization=0.75
-dalvik.vm.heapminfree=2m
-dalvik.vm.heapmaxfree=8m
-
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
