@@ -17,6 +17,9 @@
 
 #include "vendor_init.h"
 
+char const *heapminfree;
+char const *heapmaxfree;
+
 void property_override(char const prop[], char const value[])
 {
     prop_info *pi;
@@ -45,6 +48,21 @@ void property_override_9x(char const prop0[], char const prop1[], char const pro
 
 static void set_model(const char *model) {
     property_override_4x("ro.build.product", "ro.product.device", "ro.product.model", "ro.product.name", model);
+}
+
+void check_device()
+{
+    struct sysinfo sys;
+
+    sysinfo(&sys);
+
+    if (sys.totalram > 3072ull * 1024 * 1024) {
+        heapminfree = "4m";
+        heapmaxfree = "16m";
+    } else {
+        heapminfree = "512k";
+        heapmaxfree = "8m";
+    }
 }
 
 void vendor_load_properties()
@@ -88,4 +106,12 @@ void vendor_load_properties()
     
     property_override("wifi.interface", "wlan0");
     property_override("wifi.direct.interface", "p2p-dev-wlan0");
+    
+    check_device();
+    property_override("dalvik.vm.heapstartsize", "8m");
+    property_override("dalvik.vm.heapgrowthlimit", "256m");
+    property_override("dalvik.vm.heapsize", "512m");
+    property_override("dalvik.vm.heaptargetutilization", "0.6");
+    property_override("dalvik.vm.heapminfree", heapminfree);
+    property_override("dalvik.vm.heapmaxfree", heapmaxfree);
 }
