@@ -64,6 +64,7 @@ int main() {
         if ((ret = LoadPhoneProperties(productId)) == 0) {
             LOG(INFO) << "Successfully loaded phone properties for " << productId;
             android::base::SetProperty(SYS_PROP_READY, "1");
+            return ret;
         }
     }
 
