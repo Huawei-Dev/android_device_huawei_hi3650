@@ -5,11 +5,11 @@
 #include <android-base/strings.h>
 #include <android-base/properties.h>
 
-#define DEFAULD_ID "0X00000000"
-#define SYS_PROP_READY "sys.rilprops_ready"
+constexpr const char* DEFAULD_ID = "0X00000000";
+constexpr const char* SYS_PROP_READY  = "sys.rilprops_ready";
 
-#define CMDLINE "/proc/cmdline"
-#define PHONE_PROP "/vendor/phone.prop"
+constexpr const char* CMDLINE = "/proc/cmdline";
+constexpr const char* PHONE_PROP = "/vendor/phone.prop";
 
 #include <string>
 #include <vector>
@@ -33,10 +33,10 @@ std::string ReadProductId() {
     return prid;
 }
 
-int LoadPhoneProperties(std::string prid) {
+static int SetPhoneProperties(std::string prid, std::string propFile) {
     int ret = -1;
     std::string line;
-    std::ifstream file(PHONE_PROP);
+    std::ifstream file(propFile);
 
     if (file.is_open()) {
         while (std::getline(file, line)) {
@@ -46,8 +46,7 @@ int LoadPhoneProperties(std::string prid) {
             if (ret == 0) {
                 std::vector<std::string> parts = android::base::Split(line, "=");
                 if (parts.size() == 2) {
-                    LOG(INFO) << "Setting property: " << parts.at(0);
-                    android::base::SetProperty(parts.at(0), parts.at(1));
+                        android::base::SetProperty(parts.at(0), parts.at(1));
                 }
             }
         }
@@ -56,17 +55,21 @@ int LoadPhoneProperties(std::string prid) {
     return ret;
 }
 
-int main() {
+static int LoadPhoneProperties() {
     int ret = -1;
-    std::string productId = ReadProductId();
 
+    std::string productId = ReadProductId();
     if (productId != DEFAULD_ID) {
-        if ((ret = LoadPhoneProperties(productId)) == 0) {
-            LOG(INFO) << "Successfully loaded phone properties for " << productId;
-            android::base::SetProperty(SYS_PROP_READY, "1");
-            return ret;
-        }
+            if ((ret = SetPhoneProperties(productId, PHONE_PROP)) == 0) {
+                LOG(INFO) << "Successfully loaded phone properties for " << productId;
+                android::base::SetProperty(SYS_PROP_READY, "1");
+                return ret;
+            }
     }
 
     return ret;
+}
+
+int main() {
+    if (LoadPhoneProperties() < 0) LOG(WARNING) << "Unable to load phone properties";
 }
