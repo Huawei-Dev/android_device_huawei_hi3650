@@ -1,12 +1,8 @@
-subdirs = [
-    "audio",
-    "hisi_init",
-    "init",
-    "libshims",
-    "light",
-    "livedisplay",
-    "mploader",
-    "power-libperfmgr",
-    "rootdir",
-    "touch",
-]
+//
+// Copyright (C) 2019-2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+}
