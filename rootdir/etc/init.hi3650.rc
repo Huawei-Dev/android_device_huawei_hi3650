@@ -919,3 +919,12 @@ service CameraDaemon /vendor/bin/CameraDaemon hi3650 BTV
     
 on property:sys.boot_completed=1
     exec - system system -- /system/bin/service call SurfaceFlinger 1008 i32 1
+
+service vendor.hwcomposer-2-2 /vendor/bin/hw/android.hardware.graphics.composer@2.2-service
+    override
+    class hal animation
+    user system
+    group graphics drmrpc
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger
+    task_profiles HighPerformance
