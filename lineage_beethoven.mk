@@ -38,3 +38,9 @@ PRODUCT_DEVICE := beethoven
 PRODUCT_BRAND := Huawei
 PRODUCT_MANUFACTURER := Huawei
 PRODUCT_MODEL := MediaPad-M3
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="BTV-DL09-user 7.0 HUAWEIBEETHOVEN-DL09 C100B311 release-keys"
+
+# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
+BUILD_FINGERPRINT := "HUAWEI/BEETHOVEN/hwbeethoven:7.0/HUAWEIBEETHOVEN-DL09/C100B311:user/release-keys"
