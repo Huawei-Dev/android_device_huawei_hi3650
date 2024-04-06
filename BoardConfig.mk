@@ -147,7 +147,7 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_hisi
 TARGET_RECOVERY_DEVICE_MODULES := init_hisi
 
 # Vendor Security patch level
-VENDOR_SECURITY_PATCH := 2024-01-05
+VENDOR_SECURITY_PATCH := 2024-04-05
 
 # Verity - Only needed for signing
 BOARD_AVB_ENABLE := false
