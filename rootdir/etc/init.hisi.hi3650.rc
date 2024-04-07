@@ -1,7 +1,7 @@
-on init && property:ro.product.device=BTV_L0J
+on init && property:ro.product.model=BTV_L0J
     import /vendor/etc/init/hw/init.lte.hi3650.rc
     
-on init && property:ro.product.device=BTV-DL09
+on init && property:ro.product.model=BTV-DL09
     import /vendor/etc/init/hw/init.lte.hi3650.rc
 
 on property:persist.sys.huawei.debug.on=0
