@@ -93,12 +93,15 @@ ProductInfo ReadProductInfo() {
 
 void load_variants() {
     ProductInfo product_info = ReadProductInfo();
+    std::string model;
 
     // Load the phone model dynamically from the oeminfo partition.
     if (!product_info.model.empty()) {
         LOG(INFO) << "Found product info: " << product_info.model << " " << product_info.version
                   << " " << product_info.region_type;
-        set_ro_build_prop("model", product_info.model, true);
+        for (int i = 0; i < 8; i++)
+        	model.push_back(product_info.model[i]);
+        set_ro_build_prop("model", model, true);
     } else {
         LOG(ERROR) << "Unable to parse product information!";
     }
