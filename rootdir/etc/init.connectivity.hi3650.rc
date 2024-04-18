@@ -2,8 +2,6 @@ on early-init
     setprop wifi.interface wlan0
     setprop wifi.direct.interface p2p-dev-wlan0
     setprop is_hisi_connectivity_chip 1
-    setprop ro.boot.odm.conn.chiptype ${ro.connectivity.chiptype}
-    setprop ro.boot.odm.conn.schiptype ${ro.connectivity.sub_chiptype}
 
 on post-fs-data
     # Create the directories used by the Wireless subsystem
