@@ -257,8 +257,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.radio@1.0.vendor \
-    librilutils \
-    mploader
+    librilutils
     
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/factory_modem.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/factory_modem.cfg

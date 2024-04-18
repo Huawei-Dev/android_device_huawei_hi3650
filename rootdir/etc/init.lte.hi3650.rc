@@ -2,9 +2,6 @@ on fs
     mount_all /vendor/etc/fstab.modem
     chown radio radio sys/devices/platform/balong_power/state
     write /sys/devices/platform/his_modem/modem_sysboot_start 1
-    
-    wait /vendor/phone.prop
-    start vendor.mploader
 
 service ril-daemon /vendor/bin/hw/rild
     disabled
@@ -33,12 +30,6 @@ service ril-daemon1 /vendor/bin/hw/rild -c 1
     group radio cache inet misc audio sdcard_r sdcard_rw log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
     
-service vendor.mploader /vendor/bin/hw/mploader
-    user root
-    group system radio
-    oneshot
-    disabled
-
 on property:sys.rilprops_ready=1
     start ril-daemon
 
