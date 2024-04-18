@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2019-2024 The LineageOS Project
+// Copyright (C) 2023 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -8,6 +8,8 @@ cc_binary {
     name: "hisi_init",
     init_rc: ["hisi_init.rc"],
     srcs: [
+        "hisi_utils.cpp",
+        "hisi_connectivity.cpp",
         "hisi_init.cpp",
         "hisi_nve.cpp"
     ],
