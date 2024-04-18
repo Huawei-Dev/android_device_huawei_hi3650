@@ -16,8 +16,6 @@
 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service-hisi						u:object_r:hal_lineage_livedisplay_sysfs_exec:s0
 /vendor/bin/hw/vendor.lineage.touch@1.0-service.hi3650						u:object_r:hal_lineage_touch_default_exec:s0
 
-/vendor/bin/hw/mploader													u:object_r:hal_hwmac_default_exec:s0
-
 /vendor/bin/atcmdserver														u:object_r:hal_atcmdserver_default_exec:s0
 /vendor/bin/CameraDaemon													u:object_r:hal_camera_default_exec:s0
 /vendor/bin/diagserver														u:object_r:hal_diagserver_default_exec:s0
