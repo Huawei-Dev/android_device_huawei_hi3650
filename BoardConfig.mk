@@ -146,7 +146,7 @@ BOARD_ROOT_EXTRA_FOLDERS :=  \
 	mnvm2:0
 
 BOARD_ROOT_EXTRA_SYMLINKS += \
-	/vendor/odm/hw_odm:/hw_odm
+	/odm/hw_odm:/hw_odm
 	
 # Props
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
