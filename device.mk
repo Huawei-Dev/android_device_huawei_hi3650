@@ -341,6 +341,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/cfg_btv_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_hisi.ini \
     $(LOCAL_PATH)/prebuilts/cfg_btv_wifi_only_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_wifi_only_hisi.ini
     
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+    
 include hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
