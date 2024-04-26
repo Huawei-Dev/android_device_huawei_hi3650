@@ -306,6 +306,8 @@ on boot
     chmod 0660 /sys/devices/platform/fingerprint/result
     chown system system /sys/devices/platform/fingerprint/fingerprint_chip_info
     
+    write /sys/devices/platform/fingerprint/nav 1
+    
     chmod 0660 /sys/class/hw_power/charger/charge_data/adc_conv_rate
     chown system system /sys/class/hw_power/charger/charge_data/adc_conv_rate
     chmod 0660 /sys/class/hw_power/charger/charge_data/enable_charger
