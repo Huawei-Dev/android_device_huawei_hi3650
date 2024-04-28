@@ -198,37 +198,37 @@
         {
             "PowerHint": "LAUNCH",
             "Node": "CPULittleClusterMinFreq",
-            "Duration": 1500,
+            "Duration": 3000,
             "Value": "1805000"
         },
         {
             "PowerHint": "LAUNCH",
             "Node": "CPUBigClusterMinFreq",
-            "Duration": 1500,
+            "Duration": 3000,
             "Value": "2304000"
         },
         {
             "PowerHint": "LAUNCH",
             "Node": "DDRMinFreq",
-            "Duration": 1500,
+            "Duration": 3000,
             "Value": "1333000000"
         },
         {
             "PowerHint": "LAUNCH",
             "Node": "GPUMinFreq",
-            "Duration": 1500,
+            "Duration": 3000,
             "Value": "900000000"
         },
         {
             "PowerHint": "LAUNCH",
             "Node": "TA_uClampBoost",
-            "Duration": 1500,
+            "Duration": 3000,
             "Value": "25"
         },
         {
             "PowerHint": "LAUNCH",
             "Node": "PMQoSCpuDmaLatency",
-            "Duration": 1500,
+            "Duration": 3000,
             "Value": "2c"
         },
         {
