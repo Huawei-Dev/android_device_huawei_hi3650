@@ -1,9 +1,3 @@
-on init && property:ro.product.model=BTV_L0J
-    import /vendor/etc/init/hw/init.lte.hi3650.rc
-    
-on init && property:ro.product.model=BTV-DL09
-    import /vendor/etc/init/hw/init.lte.hi3650.rc
-
 on property:persist.sys.huawei.debug.on=0
     chown system system /sys/class/sensors/sensorhub_dump
     chmod 0660 /sys/class/sensors/sensorhub_dump
