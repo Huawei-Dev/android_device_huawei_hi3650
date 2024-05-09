@@ -556,6 +556,9 @@ on boot
     chown system system /sys/kernel/rcc/stat
     
     setprop hifi.watchdog.come false
+    
+    # Power
+    setprop vendor.powerhal.init 1
 
 on property:hifi.watchdog.come=true
     restart audioserver
