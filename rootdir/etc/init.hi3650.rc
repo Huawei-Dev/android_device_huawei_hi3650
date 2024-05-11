@@ -64,9 +64,6 @@ on fs
     wait /dev/block/bootdevice/by-name/userdata
     mount_all /vendor/etc/fstab.hi3650 --early
     
-    mkdir /splash2/log 0775 system log
-    symlink /splash2/fac_log /data/log/fac_log
-
     restorecon /sys/class/graphics/fb0/lcd_color_temperature
     
 on late-fs
@@ -92,31 +89,6 @@ on post-fs-data
     mkdir /data/vendor/log/sec_storage_data 0775 system system
     mkdir /data/vendor/log/sec_storage_data/log 0755 system system
     start vendor.teecd
-    
-    mkdir /splash2/sim 0770 root system
-    mkdir /splash2/sim/offlinelogs 0770 root system
-    write /splash2/sim/offlinelogs/balong_modem1_simoffline.txt  0
-    write /splash2/sim/offlinelogs/balong_modem2_simoffline.txt  0
-    write /splash2/sim/offlinelogs/balong_modem3_simoffline.txt  0
-    write /splash2/sim/offlinelogs/slot1_simoffline.txt  0
-    write /splash2/sim/sim_pin_file.bin  ""
-    write /splash2/sim/pin_key_file.bin  ""
-
-    chmod 0660 /splash2/sim/offlinelogs/balong_modem1_simoffline.txt
-    chmod 0660 /splash2/sim/offlinelogs/balong_modem2_simoffline.txt
-    chmod 0660 /splash2/sim/offlinelogs/balong_modem3_simoffline.txt
-    chmod 0660 /splash2/sim/offlinelogs/slot1_simoffline.txt
-    chmod 0660 /splash2/sim/sim_pin_file.bin
-    chmod 0660 /splash2/sim/pin_key_file.bin
-
-    chown radio system /splash2/sim/offlinelogs/balong_modem1_simoffline.txt
-    chown radio system /splash2/sim/offlinelogs/balong_modem2_simoffline.txt
-    chown radio system /splash2/sim/offlinelogs/balong_modem3_simoffline.txt
-    chown radio system /splash2/sim/offlinelogs/slot1_simoffline.txt
-    chown root  radio  /splash2/sim/sim_pin_file.bin
-    chown root  radio  /splash2/sim/pin_key_file.bin
-
-    symlink /splash2/sim/offlinelogs /data/offlinelogs
 
     mkdir /modem_log/log 0665
     mkdir /modem_log/DrvLog 0665
@@ -182,12 +154,6 @@ on post-fs-data
 
     mkdir /data/misc/oma 0770 system system
     restorecon_recursive /data/misc/oma
-
-    mkdir /splash2/boot_fail 0775 root system
-    restorecon_recursive /splash2/boot_fail
-    
-    mkdir /splash2/storage 0770 root system
-    restorecon_recursive /splash2/storage
     
     mkdir /data/misc/radvd 0770 root root
     mkdir /data/misc/dhcp6s 0770 root root
@@ -210,38 +176,6 @@ on early-boot
     setprop viatel.device.data spi.0.ttySPI
     setprop viatel.device.pcv spi.4.ttySPI
     setprop viatel.device.gps spi.5.ttySPI
-    
-    mkdir /3rdmodemnvm/viacbp82d 0740 radio radio
-    mkdir /3rdmodemnvmbkp/viacbp82d 0740 radio radio
-
-    chown radio radio /3rdmodem/
-    chown radio radio /3rdmodem/modem_image
-    chown radio radio /3rdmodem/modem_image/viacbp82d
-    chown radio radio /3rdmodemnvm
-    chown radio radio /3rdmodemnvm/viacbp82d
-    chown radio radio /3rdmodemnvmbkp
-    chown radio radio /3rdmodemnvmbkp/viacbp82d
-    chown radio radio /3rdmodem/modem_image/viacbp82d/boot.rom
-    chown radio radio /3rdmodem/modem_image/viacbp82d/cp.rom
-    chown radio radio /3rdmodem/modem_image/viacbp82d/fsm_df.img
-    chown radio radio /3rdmodem/modem_image/viacbp82d/RfsTable
-    chown radio radio /3rdmodemnvm/viacbp82d/fsm_0.img
-    chown radio radio /3rdmodemnvm/viacbp82d/fsm_1.img
-    chown radio radio /3rdmodemnvm/viacbp82d/fsm_cl.img
-    chown radio radio /3rdmodemnvmbkp/viacbp82d/fsm_cl_backup.img
-
-    chmod 0740 /3rdmodem/modem_image
-    chmod 0740 /3rdmodem/modem_image/viacbp82d
-    chmod 0740 /3rdmodemnvm/viacbp82d
-    chmod 0740 /3rdmodemnvmbkp/viacbp82d
-    chmod 0640 /3rdmodem/modem_image/viacbp82d/boot.rom
-    chmod 0640 /3rdmodem/modem_image/viacbp82d/cp.rom
-    chmod 0640 /3rdmodem/modem_image/viacbp82d/fsm_df.img
-    chmod 0640 /3rdmodem/modem_image/viacbp82d/RfsTable
-    chmod 0640 /3rdmodemnvm/viacbp82d/fsm_0.img
-    chmod 0640 /3rdmodemnvm/viacbp82d/fsm_1.img
-    chmod 0640 /3rdmodemnvm/viacbp82d/fsm_cl.img
-    chmod 0640 /3rdmodemnvmbkp/viacbp82d/fsm_cl_backup.img
     
     chmod  0660  /sys/devices/platform/amba/ffd73000.i2c/i2c-0/0-0024/fixture_debug
     chown system  system  /sys/devices/platform/amba/ffd73000.i2c/i2c-0/0-0024/fixture_debug
@@ -429,13 +363,6 @@ on boot
     chmod 664 /sys/class/camerafs/ois/ois_check
     chown system system /sys/class/camerafs/ois/ois_icnum
     chmod 664 /sys/class/camerafs/ois/ois_icnum
-
-    chown root radio /sys/kernel/sim/sim0_hotplug_state
-    chown root radio /sys/kernel/sim/sim1_hotplug_state
-    chown root radio /sys/kernel/sim/sim2_hotplug_state
-    chown root radio /sys/kernel/sim/sim_hotplug_state
-
-    write /splash2/sim/sim_pin_file.bin  "000000"
 
     chown system system /sys/devices/platform/huawei_sensor/acc_info
     chown system system /sys/devices/platform/huawei_sensor/mag_info
