@@ -77,13 +77,12 @@ on post-fs
     chmod 0660 /proc/uid_iostats/remove_uid_list
     
 on post-fs-data
-    mkdir /data/sec_storage_data 0700 system system
+    mkdir /data/sec_storage_data 0700 system system encryption=None
     restorecon /data/sec_storage_data
-    mkdir /data/sec_storage_data_users 0700 system system
+    mkdir /data/sec_storage_data_users 0700 system system encryption=None
     restorecon /data/sec_storage_data_users
     mkdir /data/vendor/log/sec_storage_data 0775 system system
     mkdir /data/vendor/log/sec_storage_data/log 0755 system system
-    start vendor.teecd
 
     mkdir /modem_log/log 0665
     mkdir /modem_log/DrvLog 0665
@@ -630,10 +629,8 @@ service vendor.oeminfo_nvm /vendor/bin/oeminfo_nvm_server
 service vendor.teecd /vendor/bin/teecd
     class core
     user root
-    group root system readproc
-    disabled
-    seclabel u:r:tee:s0
-    
+    group root system readproc   
+   
 on property:ro.config.enable_rcc=true
     write /sys/kernel/rcc/event PASSIVE_MODE
     write /sys/kernel/rcc/max_anon_clean_size 448M
