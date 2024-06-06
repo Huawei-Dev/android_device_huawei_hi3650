@@ -60,15 +60,10 @@ on early-fs
     start vendor.oeminfo_nvm
 
 on fs    
-    wait /dev/block/bootdevice/by-name/system
-    wait /dev/block/bootdevice/by-name/userdata
-    mount_all /vendor/etc/fstab.hi3650 --early
+    mount_all /vendor/etc/fstab.hi3650
     
     restorecon /sys/class/graphics/fb0/lcd_color_temperature
     
-on late-fs
-    mount_all /vendor/etc/fstab.hi3650 --late
-
 on post-fs
     chown system system /proc/uid_cputime/show_uid_stat
     chmod 0440 /proc/uid_cputime/show_uid_stat
