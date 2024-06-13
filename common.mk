@@ -327,7 +327,9 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhidltransport.vendor \
     libhwbinder \
-    libhwbinder.vendor
+    libhwbinder.vendor \
+    libhidlmemory.vendor \
+    libion.vendor
     
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-vendorcompat
