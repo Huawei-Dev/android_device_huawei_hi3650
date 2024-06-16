@@ -240,10 +240,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml
-    
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.hisi-libperfmgr
+
+PRODUCT_PACKAGES += \
+    libiawareperf_client \
+    libperfgenius_vendor_client
+
+PRODUCT_PACKAGES += \
+    vendor.huawei.hardware.perfgenius@1.0.vendor \
+    vendor.huawei.hardware.iawareperf@1.0.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
