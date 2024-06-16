@@ -199,27 +199,9 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.huawei.hardware.graphics.displayeffect</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IEffect</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.huawei.hardware.graphics.gpucommon</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IGpuCommon</name>
-            <instance>gpucommon</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.huawei.hardware.graphics.mediacomm</name>
         <transport>hwbinder</transport>
-        <version>2.0</version>
+        <version>2.1</version>
         <interface>
             <name>IMediaComm</name>
             <instance>default</instance>
@@ -235,38 +217,11 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.huawei.hardware.hwdisplay</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplay</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.huawei.hardware.hwdisplay.displayengine</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayEngineWrapper</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.huawei.hardware.jpegdec</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IJpegDecode</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.huawei.hardware.modemlogcat</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IModemlogcat</name>
             <instance>default</instance>
         </interface>
     </hal>
