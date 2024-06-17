@@ -25,7 +25,7 @@
 /vendor/bin/start_connectivity_hisi						u:object_r:hal_gnss_default_exec:s0
 /vendor/bin/teecd								u:object_r:tee_exec:s0
 
-/vendor/xbin/gnss_watchlssd_thirdparty						u:object_r:hal_gnss_default_exec:s0
+/vendor/bin/gnss_watchlssd_thirdparty						u:object_r:hal_gnss_default_exec:s0
 
 /data/fpc(/.*)?                                          			u:object_r:fingerprintd_data_file:s0
 /dev/fingerprint                                         			u:object_r:fps_device:s0
