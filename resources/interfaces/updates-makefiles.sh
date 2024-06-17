@@ -3,4 +3,4 @@
 source $ANDROID_BUILD_TOP/system/tools/hidl/update-makefiles-helper.sh
 
 do_makefiles_update \
-  "vendor.huawei:device/huawei/hi3650/interfaces/huawei"
+  "vendor.huawei:device/huawei/hi3650/resources/interfaces/huawei"

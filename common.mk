@@ -291,10 +291,11 @@ PRODUCT_PACKAGES += \
     
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    device/huawei/hi3650 \
+    $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    device/huawei/hi3650/power-libperfmgr
+    $(LOCAL_PATH)/resources \
+    $(LOCAL_PATH)/resources/power-libperfmgr
     
 # Trust HAL
 PRODUCT_PACKAGES += \
