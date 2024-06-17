@@ -153,7 +153,7 @@ BOARD_USES_FULL_RECOVERY_IMAGE := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_huawei
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/resources/releasetools
 
 # Sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
