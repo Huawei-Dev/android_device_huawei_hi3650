@@ -22,14 +22,6 @@ bluetooth.profile.sap.server.enabled?=true
 ro.charger.disable_init_blank=true
 ro.charger.enable_suspend=true
 
-# CPU
-persist.sys.cpuset.enable=1
-persist.sys.cpuset.subswitch=250
-persist.sys.iaware.cpuenable=true
-persist.sys.fast_h_duration=2000
-persist.sys.fast_h_max=50
-persist.sys.max_rdh_delay=0
-
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
