@@ -160,7 +160,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Vendor Security patch level
-VENDOR_SECURITY_PATCH := 2024-04-05
+VENDOR_SECURITY_PATCH := 2024-06-05
 
 # Verity - Only needed for signing
 BOARD_AVB_ENABLE := false
