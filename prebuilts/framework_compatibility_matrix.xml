@@ -65,7 +65,7 @@
     <hal format="hidl">
         <name>vendor.huawei.hardware.gnss</name>
         <transport>hwbinder</transport>
-        <version>1.2</version>
+        <version>1.0</version>
         <interface>
             <name>IHWGnss</name>
             <instance>default</instance>
