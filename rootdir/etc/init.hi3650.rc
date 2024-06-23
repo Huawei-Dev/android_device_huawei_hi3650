@@ -664,7 +664,6 @@ on property:init.svc.zygote=stopped
 
 on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.hi3650
-    exec - system system -- /system/bin/service call SurfaceFlinger 1008 i32 1
 
 service vendor.hwcomposer-2-2 /vendor/bin/hw/android.hardware.graphics.composer@2.2-service
     override
