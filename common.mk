@@ -324,7 +324,10 @@ PRODUCT_PACKAGES += \
     libutilscallstack.vendor \
     libhardware_legacy.vendor \
     libexpat.vendor \
-    libstagefright_softomx_plugin.vendor
+    libstagefright_softomx_plugin.vendor \
+    android.hardware.configstore-utils.vendor \
+    libnetutils.vendor \
+    libmemtrack.vendor
     
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-vendorcompat
