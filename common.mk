@@ -320,7 +320,11 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor \
     libhidlmemory.vendor \
-    libion.vendor
+    libion.vendor \
+    libutilscallstack.vendor \
+    libhardware_legacy.vendor \
+    libexpat.vendor \
+    libstagefright_softomx_plugin.vendor
     
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-vendorcompat
