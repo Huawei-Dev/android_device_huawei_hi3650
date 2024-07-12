@@ -246,9 +246,6 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.hisi-libperfmgr
-
-PRODUCT_PACKAGES += \
     libiawareperf_client \
     libperfgenius_vendor_client
 
@@ -294,8 +291,7 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    $(LOCAL_PATH)/resources \
-    $(LOCAL_PATH)/resources/power-libperfmgr
+    $(LOCAL_PATH)/resources
     
 # Trust HAL
 PRODUCT_PACKAGES += \
