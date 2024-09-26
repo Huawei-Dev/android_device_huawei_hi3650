@@ -26,7 +26,7 @@
 #include <cutils/log.h>
 
 // Hall-effect sensor type
-#define SENSOR_TYPE 65600
+#define SENSOR_HALL_TYPE 65538
 
 #define RETRY_LIMIT     120
 #define RETRY_PERIOD    30          // 30 seconds
@@ -48,6 +48,8 @@ int main(void) {
     int32_t hallMinDelay = 0;
     time_t lastWarn = 0;
     int attemptCount = 0;
+    ASensorList sensor_list;
+    int sensor_count = 0;
 
     ALOGI("Started");
 
@@ -96,6 +98,12 @@ int main(void) {
     eventQueue = ASensorManager_createEventQueue(sensorManager, looper, 0, NULL,
                                                  NULL);
 
+    sensor_count = ASensorManager_getSensorList(sensorManager, &sensor_list);
+    ALOGI("Found %d sensors\n", sensor_count);
+    for (int i = 0; i < sensor_count; i++) {
+        ALOGI("Found %s - %d \n", ASensor_getName(sensor_list[i]), ASensor_getType(sensor_list[i]));
+    }
+    
     /*
      * As long as we are unable to get the sensor handle, periodically retry
      * and emit an error message at a low frequency to prevent high CPU usage
@@ -105,7 +113,7 @@ int main(void) {
     while (true) {
         time_t now = time(NULL);
         hallSensor = ASensorManager_getDefaultSensor(sensorManager,
-                                                     SENSOR_TYPE);
+                                                     SENSOR_HALL_TYPE);
         if (hallSensor != nullptr) {
             hallMinDelay = ASensor_getMinDelay(hallSensor);
             break;
