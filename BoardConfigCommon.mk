@@ -73,14 +73,14 @@ DEVICE_MATRIX_FILE := $(COMMON_PATH)/prebuilts/compatibility_matrix.xml
 # Kernel
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_BASE := 0x00478000
-BOARD_KERNEL_CMDLINE := loglevel=6 page_tracker=on slub_min_objects=12 unmovable_isolate1=2:192M,3:224M,4:256M androidboot.selinux=permissive
-BOARD_KERNEL_CMDLINE += loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.super_partition=system
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x07b88000 --tags_offset 0x07588000
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_KERNEL_CMDLINE := loglevel=4 initcall_debug=n page_tracker=on slub_min_objects=12 unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538
+BOARD_KERNEL_CMDLINE += loop.max_part=7 androidboot.super_partition=system androidboot.init_fatal_reboot_target=recovery androidboot.selinux=permissive
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x07b88000 --tags_offset 0x07988000 --second_offset 0x00e88000 --board ""
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image.gz
-TARGET_KERNEL_SOURCE := kernel/huawei/beethoven
+TARGET_KERNEL_SOURCE := kernel/huawei/hi3650
 TARGET_KERNEL_CONFIG := hi3650_defconfig
 TARGET_KERNEL_CLANG_VERSION := r416183b
 TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-$(TARGET_KERNEL_CLANG_VERSION)
@@ -95,8 +95,8 @@ TARGET_PROVIDES_LIBLIGHT := true
 BOARD_USES_METADATA_PARTITION := true
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
 BOARD_CACHEIMAGE_PARTITION_SIZE := 134217728
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 25862045696 #(25862078464 - 32768)
 
