@@ -71,6 +71,9 @@ DEVICE_MANIFEST_FILE := $(COMMON_PATH)/prebuilts/manifest.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/prebuilts/compatibility_matrix.xml
 
 # Kernel
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_HAS_RAMDISK := true
+BOARD_CUSTOM_BOOTIMG_MK := $(COMMON_PATH)/resources/mkbootimg.mk
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_BASE := 0x00478000
 BOARD_KERNEL_OFFSET := 0x00008000
@@ -147,6 +150,9 @@ BOARD_ROOT_EXTRA_SYMLINKS += \
 	
 # Props
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/resources/releasetools
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/fstab.hi3650
