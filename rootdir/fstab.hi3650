@@ -14,9 +14,10 @@ odm	            	/odm       	ext4   	ro,barrier=1    											wait,logical,fir
 
 /dev/block/by-name/secure_storage	/sec_storage	ext4	rw,nosuid,nodev,noatime,auto_da_alloc,data=journal,context=u:object_r:teecd_data_file:s0		wait,nofail
 
-/dev/block/by-name/boot       	/boot		emmc	defaults                                                 						recoveryonly
-/dev/block/by-name/recovery   	/recovery	emmc	defaults                                                 						recoveryonly
-/dev/block/by-name/misc       	/misc		emmc	defaults        											defaults
+/dev/block/by-name/kernel      		/boot		emmc	defaults                                                 						recoveryonly
+/dev/block/by-name/recovery_ramdisk   	/recovery	emmc	defaults                                                 						recoveryonly
+/dev/block/by-name/ramdisk	   	/ramdisk	emmc	defaults                                                 						recoveryonly
+/dev/block/by-name/misc       		/misc		emmc	defaults        											defaults
 
 /dev/block/by-name/version   /metadata  ext4     noatime,nosuid,nodev wait,check,formattable,first_stage_mount
 
