@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/huawei/beethoven
+COMMON_PATH := device/huawei/hi3650
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
@@ -67,8 +67,8 @@ TARGET_SCREEN_DENSITY := 420
 TARGET_PROVIDES_KEYMASTER := true
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/prebuilts/manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/prebuilts/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(COMMON_PATH)/prebuilts/manifest.xml
+DEVICE_MATRIX_FILE := $(COMMON_PATH)/prebuilts/compatibility_matrix.xml
 
 # Kernel
 BOARD_KERNEL_PAGESIZE := 2048
@@ -81,7 +81,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_KERNEL_SOURCE := kernel/huawei/beethoven
-TARGET_KERNEL_CONFIG := hi3650_defconfig modem.config
+TARGET_KERNEL_CONFIG := hi3650_defconfig
 TARGET_KERNEL_CLANG_VERSION := r416183b
 TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-$(TARGET_KERNEL_CLANG_VERSION)
 TARGET_KERNEL_LLVM_BINUTILS := false
@@ -135,38 +135,29 @@ TARGET_USES_MKE2FS := true
 
 BOARD_ROOT_EXTRA_FOLDERS :=  \
 	splash2 \
-	3rdmodem \
-	3rdmodemnvm \
-	3rdmodemnvmbkp \
-	sec_storage \
-	modem_log \
-	mnvm2:0
+	sec_storage
 
 BOARD_ROOT_EXTRA_SYMLINKS += \
 	/odm/hw_odm:/hw_odm
 	
 # Props
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.hi3650
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/fstab.hi3650
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_huawei
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
-
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
-BOARD_PROVIDES_LIBRIL := true
+TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
 
 # Sepolicy
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Vendor Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_hisi
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):init_hisi
 TARGET_RECOVERY_DEVICE_MODULES := init_hisi
 
 # Vendor Security patch level
@@ -188,5 +179,3 @@ BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
-
--include vendor/huawei/beethoven/BoardConfigVendor.mk
