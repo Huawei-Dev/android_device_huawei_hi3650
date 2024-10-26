@@ -14,12 +14,17 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/huawei/beethoven
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
 # AAPT conf
 PRODUCT_AAPT_CONFIG := normal 
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_CHARACTERISTICS := tablet
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1600
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -149,10 +154,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.1-service-hisi
 
-# MAC Loader
-PRODUCT_PACKAGES += \
-    hisi_init
-    
 # Media
 PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-service \
@@ -193,7 +194,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
     
 PRODUCT_PACKAGES += \
-    TetheringConfigOverlay \
     WifiOverlay
     
 # Partitions
@@ -211,8 +211,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
@@ -250,27 +248,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.hi3650 \
     fstab.hi3650.ramdisk \
-    fstab.modem \
     init.connectivity.hi3650.rc \
     init.hi3650.rc \
     init.hisi.hi3650.rc \
-    init.lte.hi3650.rc \
     init.power.hi3650.rc \
     init.usb.hi3650.rc \
     ueventd.hi3650.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.hi3650.rc:$(TARGET_RECOVERY_OUT)/root/init.recovery.hi3650.rc
-    
-# RIL
-PRODUCT_PACKAGES += \
-    android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.radio@1.0.vendor \
-    libril \
-    librilutils
-    
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/factory_modem.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/factory_modem.cfg
     
 # Sensors
 PRODUCT_PACKAGES += \
@@ -280,7 +266,6 @@ PRODUCT_PACKAGES += \
 # Shims
 PRODUCT_PACKAGES += \
     android.hardware.graphics.common@1.0_types.vendor \
-    android.hardware.radio@1.0_types.vendor \
     libtinyxml2_shim.vendor
     
 PRODUCT_PACKAGES += \
@@ -289,10 +274,10 @@ PRODUCT_PACKAGES += \
     
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    device/huawei/beethoven \
+    device/huawei/hi3650 \
     hardware/google/interfaces \
     hardware/google/pixel \
-    device/huawei/beethoven/power-libperfmgr
+    device/huawei/hi3650/power-libperfmgr
     
 # Thermal
 PRODUCT_PACKAGES += \
@@ -360,4 +345,9 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.enable_boot_charger_mode=0 \
     persist.sys.usb.config=manufacture,adb
     
-$(call inherit-product, vendor/huawei/beethoven/beethoven-vendor.mk)
+# Shipping API level (for CTS backward compatibility)
+PRODUCT_SHIPPING_API_LEVEL := 23
+PRODUCT_GMS_CLIENTID_BASE := android-huawei
+LINEAGE_BUILDTYPE := RELEASE
+    
+$(call inherit-product, vendor/huawei/hi3650/hi3650-vendor.mk)
