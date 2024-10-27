@@ -37,20 +37,20 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set,android_hardware_audio,run_64bit,true)
 
 PRODUCT_PACKAGES += \
-    audio.primary.hisi_wrapper \
+    audio.primary.hisi_wrapper:64 \
     audio.bluetooth.default \
     audio.usb.default \
     audio.r_submix.default
     
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
-    android.hardware.audio@4.0-impl \
-    android.hardware.audio.effect@4.0-impl \
-    android.hardware.bluetooth.audio-impl \
-    android.hardware.soundtrigger@2.1-impl
+    android.hardware.audio@4.0-impl:64 \
+    android.hardware.audio.effect@4.0-impl:64 \
+    android.hardware.bluetooth.audio-impl:64 \
+    android.hardware.soundtrigger@2.1-impl:64
     
 PRODUCT_PACKAGES += \
-    android.hardware.soundtrigger@2.0.vendor
+    android.hardware.soundtrigger@2.0.vendor:64
     
 PRODUCT_PACKAGES += \
     libtinycompress \
@@ -69,37 +69,37 @@ PRODUCT_COPY_FILES += \
     
 # BT
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-impl:64 \
     android.hardware.bluetooth@1.0-service
     
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.a2dp@1.0.vendor
+    android.hardware.bluetooth.a2dp@1.0.vendor:64
     
 PRODUCT_PACKAGES += \
-    libbt-vendor
+    libbt-vendor:64
     
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64
 
 PRODUCT_PACKAGES += \
-    vendor.huawei.hardware.camera.cfgsvr@1.0.vendor
+    vendor.huawei.hardware.camera.cfgsvr@1.0.vendor:64
     
 PRODUCT_PACKAGES += \
-    android.hardware.camera.device@3.2.vendor \
-    android.hardware.camera.provider@2.4.vendor
+    android.hardware.camera.device@3.2.vendor:64 \
+    android.hardware.camera.provider@2.4.vendor:64
     
 PRODUCT_PACKAGES += \
-    libshim_audioparams \
-    libdng_sdk.vendor \
-    libbinder_shim \
-    libui_shim.vendor \
-    libpiex_shim \
-    libgui_vendor \
-    libsensor_vendor \
-    libshim_hwcam \
-    libshim_ui \
-    guivnd
+    libshim_audioparams:64 \
+    libdng_sdk.vendor:64 \
+    libbinder_shim:64 \
+    libui_shim.vendor:64 \
+    libpiex_shim:64 \
+    libgui_vendor:64 \
+    libsensor_vendor:64 \
+    libshim_hwcam:64 \
+    libshim_ui:64 \
+    guivnd:64
 
 # ConfigStore
 PRODUCT_PACKAGES += \
@@ -107,7 +107,7 @@ PRODUCT_PACKAGES += \
     
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.2.vendor \
+    android.hardware.drm@1.2.vendor:32 \
     android.hardware.drm-service.clearkey
     
 # Fastbootd
@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
     
 # Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
 # GPS
@@ -147,20 +147,20 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/prebuilts/privapp-permissions-supl.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-supl.xml
     
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.1.vendor
+    android.hardware.gnss@1.1.vendor:64
     
 PRODUCT_PACKAGES += \
-    android.frameworks.sensorservice@1.0.vendor
+    android.frameworks.sensorservice@1.0.vendor:64
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-impl:64 \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-impl:64 \
     android.hardware.keymaster@3.0-service
     
 # Lights
@@ -200,7 +200,7 @@ PRODUCT_PACKAGES += \
 
 # Memtrack
 PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-impl:64 \
     android.hardware.memtrack@1.0-service
     
 # Misc
@@ -260,12 +260,12 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr
 
 PRODUCT_PACKAGES += \
-    libiawareperf_client \
-    libperfgenius_vendor_client
+    libiawareperf_client:64 \
+    libperfgenius_vendor_client:64
 
 PRODUCT_PACKAGES += \
-    vendor.huawei.hardware.perfgenius@1.0.vendor \
-    vendor.huawei.hardware.iawareperf@1.0.vendor
+    vendor.huawei.hardware.perfgenius@1.0.vendor:64 \
+    vendor.huawei.hardware.iawareperf@1.0.vendor:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
@@ -288,16 +288,16 @@ PRODUCT_COPY_FILES += \
     
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service
     
 # Shims
 PRODUCT_PACKAGES += \
-    libtinyxml2_shim.vendor
+    libtinyxml2_shim.vendor:64
     
 PRODUCT_PACKAGES += \
-    libstdc++.vendor \
-    libpcap.vendor
+    libstdc++.vendor:64 \
+    libpcap.vendor:64
     
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -317,7 +317,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-impl:64 \
     android.hardware.vibrator@1.0-service
     
 # Vndk
