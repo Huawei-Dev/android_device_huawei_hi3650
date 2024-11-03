@@ -77,9 +77,3 @@ service vendor.watchlssd /vendor/bin/gnss_watchlssd_thirdparty
     user gps
     group system inet net_raw wakelock
     disabled
-    
-service vendor.gpsdaemon /vendor/bin/gpsdaemon
-    class main
-    user root
-    group system inet root wakelock
-    oneshot
