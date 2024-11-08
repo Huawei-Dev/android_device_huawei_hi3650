@@ -36,21 +36,11 @@
 /dev/dsm									u:object_r:dmd_device:s0
 /dev/tc_ns_client                               				u:object_r:teecd_device:s0
 
-# Rootfs
-/splash2(/.*)?         								u:object_r:splash2_file:s0
-/3rdmodem(/.*)?									u:object_r:modem_file:s0
-/3rdmodemnvm(/.*)?								u:object_r:modem_file:s0
-/3rdmodemnvmbkp(/.*)?                                       			u:object_r:modem_file:s0
-/modem_log(/.*)?       								u:object_r:modem_file:s0
-/mnvm2:0(/.*)?									u:object_r:modem_file:s0
-
 /sec_storage(/.*)?     								u:object_r:teecd_data_file:s0
 /data/sec_storage_data(/.*)?                    				u:object_r:teecd_data_file:s0
 /data/sec_storage_data_users(/.*)?              				u:object_r:teecd_data_file:s0
 /data/vendor/sec_storage_data(/.*)?             				u:object_r:vendor_teecd_data_file:s0
 /data/vendor/sec_storage_data_users(/.*)?       				u:object_r:vendor_teecd_data_file:s0
-
-/hw_odm(/.*)?          								u:object_r:rootfs:s0
 
 # Block devices
 /dev/block/platform/hi_mci.0/by-name/cust                      			u:object_r:system_block_device:s0

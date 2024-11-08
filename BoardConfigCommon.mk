@@ -138,9 +138,6 @@ TARGET_USES_MKE2FS := true
 BOARD_ROOT_EXTRA_FOLDERS :=  \
 	sec_storage
 
-BOARD_ROOT_EXTRA_SYMLINKS += \
-	/odm/hw_odm:/hw_odm
-	
 # Props
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
