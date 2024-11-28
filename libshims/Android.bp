@@ -12,15 +12,10 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "libxcollie",
-    proprietary: true,
-    defaults: ["hidl_defaults"],
-    srcs: [
-        "xcollie.c",
-    ],
-    shared_libs: [
-        "liblog",
-    ],
+    name: "android.hidl.base@1.0",
+    shared_libs: ["libhidlbase"],
+    system_ext_specific: true,
+    vendor_available: true,
 }
 
 cc_library_shared {
@@ -53,6 +48,18 @@ cc_library_shared {
     defaults: ["hidl_defaults"],
     srcs: [
         "hilog.c",
+    ],
+    shared_libs: [
+        "liblog",
+    ],
+}
+
+cc_library_shared {
+    name: "libxcollie",
+    proprietary: true,
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "xcollie.c",
     ],
     shared_libs: [
         "liblog",
