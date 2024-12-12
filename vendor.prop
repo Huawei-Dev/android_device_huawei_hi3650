@@ -1,6 +1,4 @@
 # Audio
-ro.config.hw_music_lp=true
-ro.config.music_lp_vol=true
 ro.audio.offload_wakelock=false
 ro.hardware.audio.primary=hisi_wrapper
 
@@ -48,16 +46,10 @@ ro.fastbootd.available=true
 # Launcher
 lockscreen.rot_override=true
 
-# FRP
-ro.frp.pst=/dev/block/platform/hi_mci.0/by-name/frp
-
 # Gralloc
 ro.config.mmu_en=1
 persist.smart_pool=1
 
-# Kill HiSuite
-ro.cust.cdrom=/dev/null
-    
 # Media
 persist.media.offload.enable=true
 persist.media.lowlatency.enable=false
@@ -95,19 +87,9 @@ debug.sf.enable_transaction_tracing=false
 debug.sf.enable_gl_backpressure=1
 service.sf.prime_shader_cache=0
 
-# VoWiFi
-ro.config.hw_vowifi=true
-
-# VR
-ro.vr_display.service=true
-persist.egl.support_vr=1
-
 # Touch
 persist.sys.fingersense=1
    
-# WiFi Display
-persist.debug.wfd.enable=1
-
 # ZRAM
 ro.zram.mark_idle_delay_mins=60
 ro.zram.first_wb_delay_mins=180

@@ -700,21 +700,11 @@ service vendor.charger /vendor/bin/hw_charger -p
     capabilities SYS_BOOT
     seclabel u:r:charger:s0
 
-service vendor.atcmdserver /vendor/bin/atcmdserver
-    class main
-    group root system nfc graphics audio camera
-    disabled
-
 service vendor.oeminfo_nvm /vendor/bin/oeminfo_nvm_server
     class core
     critical
     ioprio rt 4
        
-service vendor.diagserver /vendor/bin/diagserver
-    class main
-    user root
-    disabled
-    
 service vendor.teecd /vendor/bin/teecd
     class core
     user root
@@ -722,37 +712,11 @@ service vendor.teecd /vendor/bin/teecd
     disabled
     seclabel u:r:tee:s0
     
-service vendor.iked /vendor/bin/iked
-    class late_start
-    user root
-    disabled
-    group system
-    
-service vendor.thermal-daemon /vendor/bin/thermal-daemon
-    class main
-    user system
-    group system
-    
-service vendor.hivwserver /vendor/bin/hivwserver
-    class vowifi
-    user system
-    group audio inet net_bt net_bt_admin net_bw_acct system
-	
-on property:ro.config.hw_vowifi=true
-    class_start vowifi
-    start vendor.iked
-
-on property:sys.userdata_is_ready=1
-    start vendor.thermal-daemon
-    
 on property:ro.config.enable_rcc=true
     write /sys/kernel/rcc/event PASSIVE_MODE
     write /sys/kernel/rcc/max_anon_clean_size 448M
     write /sys/kernel/rcc/enable 1
     
-on property:sys.boot_completed=1
-    exec - system system -- /system/bin/service call SurfaceFlinger 1008 i32 1
-
 service vendor.hwcomposer-2-2 /vendor/bin/hw/android.hardware.graphics.composer@2.2-service
     override
     class hal animation
