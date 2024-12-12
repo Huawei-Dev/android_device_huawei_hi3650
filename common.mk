@@ -180,13 +180,6 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
     
-# Misc
-PRODUCT_PACKAGES += \
-    libxcollie \
-    libhwlog \
-    libchrlog \
-    libhilog
-    
 # Overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -273,7 +266,12 @@ PRODUCT_PACKAGES += \
     
 # Shims
 PRODUCT_PACKAGES += \
-    liblog_vendor
+    liblog_vendor \
+    libimonitor \
+    libxcollie \
+    libhwlog \
+    libchrlog \
+    libhilog
     
 PRODUCT_PACKAGES += \
     libstdc++.vendor \
