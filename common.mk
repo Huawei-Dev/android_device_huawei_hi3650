@@ -82,6 +82,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl
 
+PRODUCT_PACKAGES += \
+    vendor.huawei.hardware.camera.cfgsvr@1.0.vendor
+
 # ConfigStore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-service
