@@ -232,9 +232,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml
     
 # Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.hisi-libperfmgr
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
     $(LOCAL_PATH)/prebuilts/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json \
@@ -272,8 +269,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     device/huawei/hi3650 \
     hardware/google/interfaces \
-    hardware/google/pixel \
-    device/huawei/hi3650/power-libperfmgr
+    hardware/google/pixel
     
 # Trust HAL
 PRODUCT_PACKAGES += \
