@@ -17,12 +17,14 @@ struct AndroidLogEntry {
 
 // This stub is used because the original android_log_shouldPrintLine and the
 // AndroidLogFormat struct it relied on have both been removed from the codebase.
-extern "C" int android_log_shouldPrintLine(void* p_format __unused, const char* tag __unused,
+extern "C" {
+
+int android_log_shouldPrintLine(void* p_format __unused, const char* tag __unused,
                                            int pri __unused) {
     return 1;  // Return 1 regardless the parameters, we should always print the line.
 }
 
-extern "C" size_t android_log_printLogLine(void* p_format __unused, FILE* fp,
+size_t android_log_printLogLine(void* p_format __unused, FILE* fp,
                                            AndroidLogEntry* entry) {
     if (fwrite(entry->message, 1, entry->messageLen, fp) != entry->messageLen) {
         return -1;
@@ -32,7 +34,7 @@ extern "C" size_t android_log_printLogLine(void* p_format __unused, FILE* fp,
 
 // This function is defined in the system library `libpowergenie_native3.so`
 // and it's dynamically loaded by `libpowerlog.so` with `dlsym()`.
-extern "C" int __android_logPower_print(int bufID, int priority, char* tag, char* fmt, ...) {
+int __android_logPower_print(int bufID, int priority, char* tag, char* fmt, ...) {
     char message[512];
     char new_tag[128];
 
@@ -57,7 +59,7 @@ extern "C" int __android_logPower_print(int bufID, int priority, char* tag, char
     return __android_log_buf_write(bufID, priority, new_tag, message);
 }
 
-extern "C" int __android_log_print(int prio, const char *tag, const char *fmt, ...)
+int __android_log_print(int prio, const char *tag, const char *fmt, ...)
 {
     va_list ap;
     char buf[512];    
@@ -65,4 +67,6 @@ extern "C" int __android_log_print(int prio, const char *tag, const char *fmt, .
     vsnprintf(buf, sizeof(buf), fmt, ap);
     va_end(ap);
     return __android_log_write(prio, tag, buf);
+}
+
 }
