@@ -337,10 +337,13 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
-    wpa_supplicant.conf \
-    wpa_supplicant \
-    hostapd
+    android.hardware.wifi@1.3.vendor \
+    android.hardware.wifi.hostapd@1.1.vendor \
+    android.hardware.wifi.supplicant@1.2.vendor
+
+PRODUCT_PACKAGES += \
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl
     
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/cfg_btv_dcm_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_dcm_hisi.ini \
@@ -348,6 +351,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/cfg_btv_wifi_only_hisi.ini:$(TARGET_COPY_OUT_VENDOR)/etc/cfg_btv_wifi_only_hisi.ini
     
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/resources/wifi/,$(TARGET_COPY_OUT_SYSTEM)/etc/wifi)
     
 $(call inherit-product, vendor/huawei/hi3650/hi3650-vendor.mk)
