@@ -172,23 +172,6 @@ on init
     chown system system /dev/cpu_dma_latency
     chmod 0660 /dev/cpu_dma_latency
     
-    # CPU control
-    mkdir /dev/cpuctl
-    mount cgroup none /dev/cpuctl cpu
-    chown system system /dev/cpuctl
-    chown system system /dev/cpuctl/tasks
-    chmod 0666 /dev/cpuctl/tasks
-    write /dev/cpuctl/cpu.shares 1024
-    write /dev/cpuctl/cpu.rt_runtime_us 800000
-    write /dev/cpuctl/cpu.rt_period_us 1000000
-
-    mkdir /dev/cpuctl/limit
-    chown system system /dev/cpuctl/limit/tasks
-    chmod 0644 /dev/cpuctl/limit/tasks
-    write /dev/cpuctl/limit/cpu.shares 1024
-    write /dev/cpuctl/limit/cpu.rt_runtime_us 800000
-    write /dev/cpuctl/limit/cpu.rt_period_us 1000000
-
     # CPU sets
     mkdir /dev/cpuset
     mount cgroup none /dev/cpuset cpuset,cpuset_noprefix
