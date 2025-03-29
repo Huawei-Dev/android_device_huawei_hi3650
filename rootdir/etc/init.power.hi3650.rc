@@ -213,22 +213,6 @@ on init
     chmod 0664 /dev/cpuset/top-app/tasks
     chmod 0664 /dev/cpuset/tasks
     
-    # MM
-    mkdir /dev/workingset
-    mount cgroup none /dev/workingset nodev noexec nosuid workingset
-    mkdir /dev/workingset/monitor0
-    mkdir /dev/workingset/monitor1
-    chmod 0600 /dev/workingset/tasks
-    chmod 0600 /dev/workingset/monitor0/tasks
-    chmod 0600 /dev/workingset/monitor1/tasks
-    chmod 0600 /dev/workingset/cgroup.procs
-    chmod 0600 /dev/workingset/monitor0/cgroup.procs
-    chmod 0600 /dev/workingset/monitor1/cgroup.procs
-    chmod 0600 /dev/workingset/monitor0/workingset.state
-    chmod 0600 /dev/workingset/monitor1/workingset.state
-    chmod 0600 /dev/workingset/monitor0/workingset.data
-    chmod 0600 /dev/workingset/monitor1/workingset.data
-
     # I/O
     mkdir /dev/blkio
     mount cgroup none /dev/blkio blkio
