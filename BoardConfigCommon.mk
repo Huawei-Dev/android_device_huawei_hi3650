@@ -142,9 +142,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 
 # Sepolicy
-PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
-BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
-SELINUX_IGNORE_NEVERALLOWS := true
+include device/huawei/compat/sepolicy/SEPolicy.mk
 
 # Vendor Init
 TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):init_hisi

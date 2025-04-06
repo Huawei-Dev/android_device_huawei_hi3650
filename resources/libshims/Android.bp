@@ -5,37 +5,6 @@
 //
 
 cc_library_shared {
-    name: "libshim_ui",
-    srcs: ["libshim_ui.cpp"],
-    shared_libs: [
-        "libui",
-        "libutils"
-    ],
-    vendor: true,
-}
-
-cc_library_shared {
-    name: "guivnd",
-    shared_libs: [
-        "libgui_vendor",
-        "libsensor_vendor"
-    ],
-    vendor: true,
-}
-
-cc_library_shared {
-    name: "libshim_hwcam",
-    shared_libs: [
-        "libgui_vendor",
-        "libui",
-        "libshim_ui",
-        "libui_shim",
-        "libtinyxml2_shim"
-    ],
-    vendor: true,
-}
-
-cc_library_shared {
     name: "libhwlog",
     proprietary: true,
     defaults: ["hidl_defaults"],
@@ -45,14 +14,4 @@ cc_library_shared {
     shared_libs: [
         "liblog",
     ],
-}
-
-cc_library_shared {
-    name: "libshim_audioparams",
-    srcs: ["libshim_audioparams.cpp"],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-    ],
-    vendor: true,
 }

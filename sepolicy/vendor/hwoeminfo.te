@@ -1,7 +1,0 @@
-type hwoeminfo, domain;
-type hwoeminfo_exec, exec_type, vendor_file_type, file_type;
-type hwoeminfo_device, dev_type;
-type hwoeminfo_socket, file_type;
-type_transition hwoeminfo socket_device:sock_file hwoeminfo_socket;
-type_transition hwoeminfo device:{ file dir } hwoeminfo_device;
-init_daemon_domain(hwoeminfo)

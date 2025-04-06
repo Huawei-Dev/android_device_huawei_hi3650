@@ -165,15 +165,15 @@ PRODUCT_PACKAGES += \
     
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.hisi
+    android.hardware.light-service.huawei
     
 # Lineage hardware
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.hi3650
+    vendor.lineage.touch@1.0-service.huawei
     
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service-hisi
+    vendor.lineage.livedisplay@2.1-service.huawei
 
 # Media
 PRODUCT_PACKAGES += \
@@ -304,7 +304,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    $(LOCAL_PATH)/resources
+    $(LOCAL_PATH)/resources \
+    device/huawei/compat
 
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
