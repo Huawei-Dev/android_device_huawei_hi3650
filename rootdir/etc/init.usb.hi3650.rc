@@ -37,9 +37,9 @@ on init
     chown system system /sys/devices/virtual/android_usb/android0/switch_request
     chmod 0664 /sys/devices/virtual/android_usb/android0/switch_request
 
-    mkdir /dev/usb-ffs 0775 shell system
-    mkdir /dev/usb-ffs/adb 0770 shell system
-    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=1000
+    mkdir /dev/usb-ffs 0770 shell system
+    mkdir /dev/usb-ffs/adb
+    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=1000,rmode=0770,fmode=0660
     
     setprop sys.usb.configfs 1
     setprop sys.usb.controller ff100000.dwc3
